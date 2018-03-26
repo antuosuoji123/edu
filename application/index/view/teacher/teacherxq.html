@@ -1,0 +1,110 @@
+
+<!--公共文件样式-->
+{include file="public/head" /}
+<!--/公共文件样式-->
+
+<body>
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+{include file="public/nav" /}
+<!--网站导航 end-->
+
+<!--web main body start-->
+<div class="w-all w-minw bg-c-fcfcfc ovhidden">
+    <div class="w-main m-auto"> 
+        <!--面包屑 start-->
+        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl">网站位置：首页  >  名师  >  详情</div>
+        <!--面包屑 end--> 
+    </div>
+    <div class="w-main m-auto"> 
+        <!--讲师详情 left start-->
+        <div class="w-840 fl">
+            {volist name="v" id="k"}
+            <!--top start-->
+            <div class="w-840 bg-c-ffffff p-t-15 m-b-20 ovhidden fl">
+                <div class="p-l-20 p-r-30 w-790 fl"> 
+                    <!--left school content top start-->
+                    <h3 class="w-all fs-18 ftc-000000 p-b-10 bd-bs-f3f3f ft-w-b line-h50 fl">名师介绍</h3>
+                    <div class="w-all m-t-22 fl">
+                        <div class="w-300 hg-225 bd-1s-ededed  fl"> <img src="__PUBLIC__/HOME_PICS/teach_con.jpg" width="300" height="225" alt=""/> </div>
+                        <div class="w-430 fr">
+                            <h4 class="w-all fs-18 ftc-000000 ft-w-b line-h55 fl">姓名：{$k.username}</h4>
+                            <p class="w-all fs-14 m-t-5 line-h42 fl">教学时间：&nbsp;&nbsp;&nbsp;{$k.timeing}年</p>
+                            <p class="w-all fs-14 m-t-5 line-h42 fl">擅长科目：&nbsp;&nbsp;&nbsp;{$k.goodclass}</p>
+                        </div>
+                    </div>
+                    <div class="w-all hg-22 fl"></div>
+                    <div class="w-all hg-1 bg-c-f3f3f3 fl"></div>
+                </div>
+                <!--left school content top start-->
+                
+                <div class="p-l-20 p-r-30 w-790 fl">
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">教师荣誉</h3>
+                    <div class="w-790 p-l-15 fs-16 line-h26 ftc-636363 fl">{$k.honor}<br/>
+                    </div>
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-25 m-b-15 line_h3 fl">名师介绍</h3>
+                    <div class="w-790 p-l-15 fs-16 line-h26 ftc-636363 fl">{$k.introduce} <br/>
+                    </div>
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-25 m-b-15 line_h3 fl">教育背景</h3>
+                    <div class="w-790 p-l-15 fs-16 line-h26 ftc-636363 fl">{$k.background} <br/>
+                    </div>
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-25 m-b-15 line_h3 fl">教学格言</h3>
+                    <div class="w-790 p-l-15 fs-16 line-h26 ftc-636363 fl">{$k.motto} <br/>
+                    </div>
+                </div>
+            </div>
+            <!--top start-->
+            {/volist}
+            <!--讲师详情风采 start -->
+            <div class="w-840 bg-c-ffffff p-t-15 ovhidden fl">
+                <div class="p-l-20 p-r-30 w-790 fl">
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-25 m-b-15 line_h3 fl">名师风采</h3>
+                </div>
+                <div class="w-all hg-1 bg-c-f3f3f3 m-b-6 fl"></div>
+                <div class="w-790 p-l-15 fs-16 fl">
+                    <ul class="w-804 p-b-30 ovhidden">
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                        <li class="w-258 hg-193 m-t-5 m-b-6 m-l-4 m-r-4 bd-1s-ededed ovhidden fl"><img src="__PUBLIC__/HOME_PICS/laoshi1.jpg" alt=""/></li>
+                    </ul>
+                </div>
+            </div>
+            <!--讲师详情风采 end --> 
+        </div>
+        <!--讲师详情 left end--> 
+        <!--人气讲师 right start-->
+        <div class="w-340 fr">
+            <div class="w-330 p-l-10 fs-14 bg-c-ffffff ftc-7a7a7a m-b-10 line-h60 fl">人气教师</div>
+            <ul class="w-320 p-l-10 p-r-10 p-b-20 rig_scool bg-c-ffffff fl">
+                {volist name="other" id="k"}
+                <li class="w-all m-t-20 m-b-2 fl"> <a href="/index/teacher/teacherxq?id={$k.id}" class="dsblock w-102 hg-68 fl ovhidden"><img src="__PUBLIC__/HOME_PICS/jiangshi1.jpg" alt="a"/></a> <a href="#" class="dsblock w-175 hg-68 ovhidden fr">
+                    <h3 class="w-all fs-16 ftc-000000 line-h30 m-t-3 fl">{$k.username}</h3>
+                    <p class="w-all fs-14 ftc-6d6d6d line-h22 fl">教学时间：    {$k.timeing}年</p>
+                    </a>
+                </li>
+                {/volist}
+
+            </ul>
+        </div>
+        <!--人气讲师 right start--> 
+        
+    </div>
+</div>
+
+<!--like start-->
+{include file="public/like"}
+<!--like end-->
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+</body>
+</html>

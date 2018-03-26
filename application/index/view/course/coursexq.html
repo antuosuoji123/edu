@@ -1,0 +1,185 @@
+
+<!--公共文件样式-->
+{include file="public/head" /}
+<!--/公共文件样式-->
+
+<body>
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+{include file="public/nav" /}
+<!--网站导航 end-->
+
+
+<!--web main body start-->
+<div class="w-all w-minw bg-c-fcfcfc ovhidden">
+    <div class="w-main m-auto ovhidden"> 
+        <!--面包屑 start-->
+        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl"> 网站位置：首页  >  小学 </div>
+        <!--面包屑 end--> 
+    </div>
+    <!--web main body start--> 
+    
+    <!--web main bogy top start-->
+    <div class="w-main m-auto ovhidden">
+        <div class="w-main m-auto bg-c-ffffff ovhidden"> 
+            <!--left img start-->
+            <div class="w-450 hg-338 fl"> <img src="__PUBLIC__/HOME_PICS/calsscon.jpg" width="450" height="338" alt=""/> </div>
+            <!--left img end--> 
+            <!--right info start-->
+
+            {foreach $info as $v}
+      <div class="w-680 hg-338 m-l-40 ovhidden ps-r fl">
+       <h3 class="w-all fs-24 ftc-000000 m-t-15 m-b-10 line-h36 fl">{$v.title}</h3>
+                <!--info right start-->
+      <div class="w-all fl">
+      <ul class="con_rig_class">
+       <li class="w-all fs-14 ftc-000000 line-h40 m-b-10 fl">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：<span class="fs-24 ftc-e9511b">{$v.price}</span><del class="fs-14 ftc-000000 line-h40 m-l-24">原价：{$v.originalprice}</del></li>
+       <li class="w-all fs-14 ftc-000000 line-h28 fl">课&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;次：{$v.keci}</li>
+        <li class="w-all fs-14 ftc-000000 line-h28 fl">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容：{$v.banrong}</li>
+       <li class="w-all fs-14 ftc-000000 line-h28 fl">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</li>
+       <li class="w-all fs-14 ftc-000000 line-h28 fl">适用学员：{$v.remark}</li>
+       <li class="w-all fs-14 ftc-000000 line-h28 fl">开班规律：{$v.law}</li>
+       <div class="claer"></div>
+        </ul>
+                </div>
+                <!--info right end-->
+                <div class="standard ps-a pa-b-22"> <a class="dsblock w-140 hg-46 text-c line-h46 bg-c-e9511b ftc-ffffff fs-18 bd-rd-6 m-r-28 fl" href="javascript:;" onclick="">立即购买</a> 
+    <!--info 加入购物车 {:url('Cart/cart')}end-->
+<a class="dsblock w-170 hg-42 text-c line-h42 ftc-e9511b fs-18 bd-rd-6 bd-2s-e9511b m-r-28 fl" href="#" 
+onclick="addCart(
+cid={$v.cid},
+price={$v.price},
+originalprice={$v.originalprice},
+title='{$v.title}'
+)">
+加入购物车</a> 
+    <!--info 加入购物车 end-->
+                <a class="dsblock w-140 hg-46 text-c line-h46 bg-c-6595e4 ftc-ffffff fs-18 bd-rd-6 m-r-28 fl" href="javascript:;" onclick="">免费试听</a> </div>
+            </div>
+            {/foreach}
+
+<script>
+    
+function addCart(cid,price,originalprice,title){
+    $.ajax({
+        type:'post',
+        url:'cour_add',
+        data: {"cid":cid,'price':price,'originalprice':originalprice,'title':title},
+        success:function(data){
+            console.log(data);
+        }
+    });
+
+
+} 
+
+</script>
+
+            <!--right info end--> 
+        </div>
+        <!--web main bogy top end--> 
+        <!--分割线-->
+        <div class="w-amin hg-30 ovhidden"></div>
+        <!--分割线-->
+        <div class="w-main ovhidden">
+            <ul class="w-1140 p-l-30 p-r-30 p-t-13 p-b-13 ovhidden bg-c-ffffff ql_classtab m-b-2">
+                <li class="fl"> <a href="javascript:;" class="w-110 fs-16 ftc-000000 line-h30 hg-30 text-c ft-w-b m-r-20 tabcur">课程总览</a> </li>
+                <span class="fl m-r-20 fs-18 line-h30 ftc-bbbbbb">|</span>
+                <li class="fl" name="ql_plistcon"> <a href="#ql_plistcon" class="w-110 fs-16 ftc-000000 line-h30 hg-30 text-c ft-w-b m-r-20 fl">课程评论</a></li>
+            </ul>
+            <!--课程总览 start-->
+            <div class="w-1140 p-l-30 p-r-30 bg-c-ffffff p-b-30 ovhidden">
+                <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">课程介绍</h3>
+                <div class="w-1115 p-l-15 fs-16 line-h26 ftc-636363 fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，不满意不计费 4.每次课结束后会有作业，帮助巩固吸收学习内容。每月进行月考，检测知识学习情况 。 <br/>
+                    <br/>
+                </div>
+                <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">教学目标</h3>
+                <div class="w-1115 p-l-15 fs-16 line-h26 ftc-636363 fl">根据基础知识的理解加深对题目的理解，达到理解题型和题干信息相匹配。<br/>
+                    <br/>
+                </div>
+                <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">授课特点</h3>
+                <div class="w-1115 p-l-15 fs-16 line-h26 ftc-636363 fl"> <br/>
+                    题型和提干信息的比对；特殊疑问句表达和书写；句子结构书写； </div>
+                <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">授课内容</h3>
+                <div class="w-1115 p-l-15 fs-16 line-h26 ftc-636363 fl"> 1.精编教材，适度定制VIP教案-全国专家智慧的结晶，学科教学前沿的精华；2.先进的教学理念-能力与成绩兼得，成长和成绩并重；3.人性化的教学方法-情景、体验式快乐教学，构建以学生为中心的课堂；4.VIP高端小课教学-给孩子提供大量运用语言的机会，了解每个孩子的个性特点，核心学习力，帮助他们运用的优劣去学习；5.精细的作业批改-让每个孩子体会属于自己的点滴成长。 </div>
+            </div>
+            <!--课程总览 end--> 
+            <!--分割线-->
+            <div class="w-amin hg-30 ovhidden"></div>
+            <!--分割线-->
+            <div class="w-main m-auto" id="ql_plistcon">
+                <div class="w-1140 p-l-30 p-r-30 bg-c-ffffff ovhidden">
+                    <h3 class="fs-16 ft-w-b ftc-e9511b line-26 p-l-15 m-t-15 m-b-15 line_h3 fl">课程评论</h3>
+                    <ul class="w-all ql_plist ovhidden fl">
+                        <li class="w-all fl bd-bs-f8f8f8 p-b-13 m-b-25"> <a href="#" class="dsblock w-72 hg-72 m-r-30 fl"><img src="__PUBLIC__/HOME_PICS/xue.jpg" class="bd-rd-36" width="72" height="72" alt="" /></a>
+                            <div class="w-1028 ql_pltxt fl">
+                                <h4 class="w-all fs-16 line-22 m-b-8 ftc-4c4c4c fl">小飞飞<i class="dsblock w-18 hg-22 ql_zan fr"></i></h4>
+                                <span class="dsblock w-all fs-14 line-h24 ftc-9a9a9a fl">2017-08-10     15:38</span>
+                                <p class="w-all fs-14 line-h22 hg-44 ovhidden ps-r fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法 <a href="javascript:;" class="fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff ps-a pa-b-0 pa-r-0 pl_btn_down dsblock">【展开全文】</a> <a href="javascript:;" class="ps-a fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff pa-b-0 pa-r-0 pl_btn_up dsbnone">【收缩全文】</a> </p>
+                            </div>
+                        </li>
+                        <li class="w-all fl bd-bs-f8f8f8 p-b-13 m-b-25"> <a href="#" class="dsblock w-72 hg-72 m-r-30 fl"><img src="__PUBLIC__/HOME_PICS/xue.jpg" class="bd-rd-36" width="72" height="72" alt="" /></a>
+                            <div class="w-1028 ql_pltxt fl">
+                                <h4 class="w-all fs-16 line-22 m-b-8 ftc-4c4c4c fl">小飞飞<i class="dsblock w-18 hg-22 ql_zan fr"></i></h4>
+                                <span class="dsblock w-all fs-14 line-h24 ftc-9a9a9a fl">2017-08-10     15:38</span>
+                                <p class="w-all fs-14 line-h22 hg-44 ovhidden ps-r fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法 <a href="javascript:;" class="fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff ps-a pa-b-0 pa-r-0 pl_btn_down dsblock">【展开全文】</a> <a href="javascript:;" class="ps-a fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff pa-b-0 pa-r-0 pl_btn_up dsbnone">【收缩全文】</a> </p>
+                            </div>
+                        </li>
+                        <li class="w-all fl bd-bs-f8f8f8 p-b-13 m-b-25"> <a href="#" class="dsblock w-72 hg-72 m-r-30 fl"><img src="__PUBLIC__/HOME_PICS/xue.jpg" class="bd-rd-36" width="72" height="72" alt="" /></a>
+                            <div class="w-1028 ql_pltxt fl">
+                                <h4 class="w-all fs-16 line-22 m-b-8 ftc-4c4c4c fl">小飞飞<i class="dsblock w-18 hg-22 ql_zan fr"></i></h4>
+                                <span class="dsblock w-all fs-14 line-h24 ftc-9a9a9a fl">2017-08-10     15:38</span>
+                                <p class="w-all fs-14 line-h22 hg-44 ovhidden ps-r fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法 <a href="javascript:;" class="fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff ps-a pa-b-0 pa-r-0 pl_btn_down dsblock">【展开全文】</a> <a href="javascript:;" class="ps-a fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff pa-b-0 pa-r-0 pl_btn_up dsbnone">【收缩全文】</a> </p>
+                            </div>
+                        </li>
+                        <li class="w-all fl bd-bs-f8f8f8 p-b-13 m-b-25"> <a href="#" class="dsblock w-72 hg-72 m-r-30 fl"><img src="__PUBLIC__/HOME_PICS/xue.jpg" class="bd-rd-36" width="72" height="72" alt="" /></a>
+                            <div class="w-1028 ql_pltxt fl">
+                                <h4 class="w-all fs-16 line-22 m-b-8 ftc-4c4c4c fl">小飞飞<i class="dsblock w-18 hg-22 ql_zan fr"></i></h4>
+                                <span class="dsblock w-all fs-14 line-h24 ftc-9a9a9a fl">2017-08-10     15:38</span>
+                                <p class="w-all fs-14 line-h22 hg-44 ovhidden ps-r fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法 <a href="javascript:;" class="fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff ps-a pa-b-0 pa-r-0 pl_btn_down dsblock">【展开全文】</a> <a href="javascript:;" class="ps-a fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff pa-b-0 pa-r-0 pl_btn_up dsbnone">【收缩全文】</a> </p>
+                            </div>
+                        </li>
+                        <li class="w-all fl bd-bs-f8f8f8 p-b-13 m-b-25"> <a href="#" class="dsblock w-72 hg-72 m-r-30 fl"><img src="__PUBLIC__/HOME_PICS/xue.jpg" class="bd-rd-36" width="72" height="72" alt="" /></a>
+                            <div class="w-1028 ql_pltxt fl">
+                                <h4 class="w-all fs-16 line-22 m-b-8 ftc-4c4c4c fl">小飞飞<i class="dsblock w-18 hg-22 ql_zan fr"></i></h4>
+                                <span class="dsblock w-all fs-14 line-h24 ftc-9a9a9a fl">2017-08-10     15:38</span>
+                                <p class="w-all fs-14 line-h22 hg-44 ovhidden ps-r fl">针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法针对初一年级学生，根据英语课程，同步并强化提升重要知识点和常见典型题目，做到及时复习，有效的夯实基础。youwin独特方法，帮学员扫清学习障碍。1.帮助学生构建属于自己的个性化学习方案 2.课前精细备课，制定完整教学计划 3.我们承诺当堂课满分过关，做到及时复习，有效的夯实基础。youwin独特方法 <a href="javascript:;" class="fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff ps-a pa-b-0 pa-r-0 pl_btn_down dsblock">【展开全文】</a> <a href="javascript:;" class="ps-a fs-14 ftc-ff0000 p-l-10 p-r-10 bg-c-ffffff pa-b-0 pa-r-0 pl_btn_up dsbnone">【收缩全文】</a> </p>
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <script type="text/javascript" src="/static/index/js/qlclass.pl.js"></script>
+                    <div class="w-all hg-30 fl"></div>
+                    <!--pages start-->
+                    <ul class="w-560 hg-36 ql_pages m-auto">
+                        <li class="fl"><a class="" href="#">&lt;</a></li>
+                        <li class="fl"><a class="cur" href="#">1</a></li>
+                        <li class="fl"><a class="" href="#">2</a></li>
+                        <li class="fl"><a class="" href="#">3</a></li>
+                        <li class="fl"><a class="" href="#">...</a></li>
+                        <li class="fl"><a class="" href="#">12</a></li>
+                        <li class="fl"><a class="" href="#">&gt;</a></li>
+                    </ul>
+                    <!--pages end-->
+                    <div class="w-all hg-30 fl"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w-all hg-60 fl"></div>
+        <!--web main body end--> 
+    </div>
+</div>
+<!--like start-->
+{include file="public/like"}
+<!--like end-->
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+</body>
+</html>

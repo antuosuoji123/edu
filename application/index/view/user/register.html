@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">   
+    <title>注册-齐峰教育官网-小初高个性化教育项目综合运营商</title>
+    <meta name="keywords" content="齐峰教育,教育培训,教育加盟,教育培训机构加盟,文化课课外辅导,一对一辅导,一对一补习,一对一家教,高考补习班,数学补习班,暑假补习班,寒假补习班,暑假辅导班,高中补课" />
+    <meta name="description" content="齐峰教育是集教育培训、教育研发、双师云课堂、特许连锁等业务于一体的个性化教育集团，专注于K12教育个性化课外辅导，致力于为孩子创造最优质的个性化教育服务平台。针对小学，初中，高中开设数学，语文，英语，物理，化学，地理，历史，生物，政治等一对一家教辅导，一对一补习课程以及寒假暑假补习班。" />
+   
+    <link href="__PUBLIC__/HOME_CSS/reg3.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/HOME_CSS/tpshop.css" />
+    <script src="__PUBLIC__/HOME_JS/layer/jQuery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        #subm{width:200px;height:35px;line-height:35px;background:#F3FBFE; no-repeat;border:none;}
+    </style>
+
+    <script src="__PUBLIC__/HOME_JS/layer/layer/layer.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/HOME_JS/global.js"></script>
+
+
+</head>
+<body>
+    <div class="regcon">
+        <a class="m-fnlogoa fn-fl" href="/"><img src="__PUBLIC__/HOME_IMG/e75573654d7107b7398f9d16a8a27c05.png"/></a><span class="m-fntit">欢迎注册</span>
+        <div class="ui_tab">
+            <ul class="ui_tab_nav regnav">
+                <!-- <li class="uli active "><a href="/Home/User/register.html" >手机注册</a></li> -->
+               
+                <li class="no fn-fr loginbtn">我已注册，马上<a href="/index/user/login">登录></a></li>
+            </ul>
+            
+		<form id="reg_form2"  method="post" action="/index/user/reg">
+			<input type="hidden" name="scene" value="1">    
+            <div class="ui_tab_content">
+                <div class="m-fnbox ui_panel" style="display: block;">
+                    <div class="fnlogin clearfix">
+                    
+                        <div class="line">
+                            <label class="linel"><span class="dt">用户名：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp fmobile J_cellphone" placeholder="请输入用户名"  name="username"  id="username" required/>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">邮箱：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp fmobile J_cellphone" placeholder="请输入邮箱地址"  name="email" id="email" required/>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">手机号码：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp fmobile J_cellphone" placeholder="请输入手机号码"  name="phone" id="phone" required/>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">短信验证码：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp imgcode J_imgcode" placeholder="短信验证码"  id="dxyzm" name="dx" required/>
+                                <input type="button" value="aaaaaaaaaaaa" id="dx"/>
+
+                            </div>
+                            <div id="show-voice" class="show-voice"></div>
+                        </div>
+
+<!--------->
+                        <div class="line">
+                            <label class="linel"><span class="dt">图像验证码：</span></label>
+                            <div class="liner">
+                                <input type="text" id="yzm" class="inp imgcode J_imgcode" placeholder="图像验证码"  name="verify_code" required/>
+                                <img src="{:captcha_src()}" class="pic" alt="captcha" onclick="this.src=this.src+'?yzm='+Math.random()" id="reflsh_code2" class="po-ab to0"/>
+
+                                <!--<a><img onclick="verify('reflsh_code2')" src="__PUBLIC__/HOME_IMG/chg_image.png" class="ma-le-210"></a>-->
+                            </div>
+                            <div id="show-voice" class="show-voice"></div>
+                        </div>
+                                           <div class="line">
+                            <label class="linel"><span class="dt">设置密码：</span></label>
+                            <div class="liner">
+                                <input type="password" class="inp fpass J_password" placeholder="6-16位大小写英文字母、数字或符号" autocomplete="off" maxlength="16"  id="password" name="password" value="" required/>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">确认密码：</span></label>
+                            <div class="liner">
+                                <input type="password" class="inp fsecpass J_password2" placeholder="请再次输入密码" autocomplete="off" maxlength="16" id="password2" name="password2" required value=""/>
+                            </div>
+                        </div>
+                        <div class="line liney clearfix" id="xxxx">
+                            <label class="linel">&nbsp;</label>
+                            <div class="liner">
+                                <div class="clearfix checkcon">
+                                    <p class="fn-fl checktxt"><input type="checkbox" class="iyes yd fn-fl J_protocal" checked id="checkb"/>
+                                    <span class="fn-fl">我已阅读并同意</span><a class="itxt fn-fl" onClick="xieyi(this)" href="javascript:;" target="_blank">《齐峰教育服务协议》</a>
+                                    </p>
+                                      <p class="fn-fl errorbox v-txt" id="protocalBox"></p>
+                                </div>
+<!--register-->
+                                <!--<input type="submit" value="同意协议并注册" name="submit" id="subm" class="yhm yx sjhm ma rma yd ">-->
+                                <div id="uniq"><input type="submit" value="同意协议并注册" name="submit" id="subm" ></div>
+                                <p class="v-txt" id="err_check_code">
+                                    <span class="fnred">请勾选</span>我已阅读并同意<a class="itxt" onClick="xieyi(this)" href="javascript:;">《齐峰教育服务协议》</a>
+                                </p>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+            </div>
+            </form>
+
+        </div>
+    </div>    
+</div>
+    <!--footer-s-->
+
+    <!--web footer start-->
+    {include file="public/footer" /}
+    <!--web footer copyright start-->
+<!--<div class="w-all w-minw bg-c-cccccc p-t-6 p-b-6 ovhidden">-->
+    <!--<div class="w-main m-auto text-c fs-12 ftc-414141 line-24">Copyright 2010-2017    鲁ICP备17005611号-1<br/>公司地址：济南市市中区二环南路6086号社会组织创新园301<a href="http://www.qifengedu.com/index/fenxiao/index.html"  target="_blank" class="ftc-000000">分校中心</a><script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5f3144b26dae78189495a2eb8c26d382' type='text/javascript'%3E%3C/script%3E")) </script></div>-->
+<!--</div>-->
+    <!--</div>-->
+    <!--footer-e-->
+
+</body>
+</html>
+
+<script>
+    $(function () {
+
+        //dx
+        $('#dx').click(function () {
+            $.ajax({
+                url:'/index/user/dx',
+                type:'post',
+                data:{phone:$('#phone').val()},
+                success:success
+            });
+            function success(data)
+            {
+                console.log(data);
+                if (data) {
+                    alert('1');
+                }else {
+                    alert('2');
+                }
+            }
+        });
+
+        //判断用户名
+        $('#username').blur(function () {
+            $.ajax({
+                url:'/index/user/lname',
+                type:'post',
+                data:{name:$('#username').val()},
+                success:success
+            });
+            function success(data)
+            {
+                if (data == 1) {
+                    layer.tips('用户名已存在','#username',{tips:[2,'purple'],time:999000});
+                    $('#username').removeClass('yhm');
+                } else if (data == 2){
+                    layer.tips('continue','#username',{tips:[2,'violet'],time:2000});
+                    $('#username').addClass("yhm");
+                } else if (data == 0) {
+                    $('#username').removeClass('yhm');
+                }
+            }
+        });
+
+        //判断email
+        $('#email').blur(function () {
+            $.ajax({
+                url:'/index/user/email',
+                type:'post',
+                data:{name:$('#email').val()},
+                success:success
+            });
+            function success(data)
+            {
+                if (data == 1) {
+                    layer.tips('continue','#email',{tips:[2,'violet'],time:2000});
+                    $('#email').addClass("email");
+                } else if (data == 2){
+                    if (!$('#email').val() == '') {
+                        layer.tips('邮箱格式不对','#email',{tips:[2,'purple'],time:999000});
+                        $('#email').removeClass('email');
+                    }
+                } else if (data == 0) {
+                    $('#email').removeClass('email');
+                }
+            }
+        });
+
+        //判断号码
+        $('#phone').blur(function () {
+            $.ajax({
+                url:'/index/user/phone',
+                type:'post',
+                data:{name:$('#phone').val()},
+                success:success
+            });
+            function success(data)
+            {
+                if (data == 1) {
+                    layer.tips('continue','#phone',{tips:[2,'violet'],time:2000});
+                    $('#phone').addClass('phone');
+                } else if (data == 2){
+                        layer.tips('phone格式不对','#phone',{tips:[2,'purple'],time:999000});
+                    $('#phone').removeClass('phone');
+
+                } else if (data == 0) {
+                    $('#phone').removeClass('phone');
+
+                }
+            }
+        });
+
+        //判断验证码
+        $('#yzm').blur(function () {
+            $.ajax({
+                url:'/index/user/lyzm',
+                type:'post',
+                data:{yzm:$('#yzm').val()},
+                success:success
+            });
+            function success(data)
+            {
+                if (data ==2) {
+                    layer.tips('验证码错误','#yzm',{tips:[4,'purple'],time:999000});
+//                    $('.pic').click();
+                    $('#yzm').removeClass('yzm');
+                } else if (data == 1){
+                    layer.tips('continue','#yzm',{tips:[4,'violet'],time:2000});
+                    $('#yzm').addClass('yzm');
+                    $('#yzm').attr('disabled',true);
+                    $('.pic').css('display','none');
+                    $('#yzm').addClass('yzm');
+                } else if (data == 0) {
+                    $('#yzm').removeClass('yzm');
+                    return false;
+                }
+            }
+        });
+
+        //判断密码
+        $('#password').blur(function () {
+            if ($('#password').val().length == 0) {
+                $('#password2').removeClass('pwd');
+                $('#password2').attr('disabled',true);
+                return;
+            }
+            if ($('#password').val().length < 6 ) {
+                if (!$('#password').val().length == 0) {
+                    layer.tips('密码格式不对','#password',{tips:[2,'purple'],time:999000});
+                    $('#password2').removeClass('pwd');
+                    $('#password2').attr('disabled',true);
+                }
+            } else {
+
+                layer.tips('continue','#password',{tips:[2,'violet'],time:2000});
+                $('#password2').attr('disabled',false);
+                $('#password2').addClass('pwd');
+            }
+            var pwd = $('#password').val();
+            var pwd2 = $('#password2').val();
+            if (pwd != pwd2) {
+                $('#password2').removeClass('pwd2');
+            }
+        });
+
+        //再次判断
+        $('#password2').mouseout(function () {
+            var pwd = $('#password').val();
+            var pwd2 = $('#password2').val();
+            if ($('#password2').val().length == 0) {
+                $('#password2').removeClass('pwd2');
+            }
+            if (pwd == pwd2) {
+                if (!$('#password2').val().length == 0) {
+                    layer.tips('continue','#password2',{tips:[2,'violet'],time:2000});
+                    $('#password2').addClass('pwd2');
+
+                }
+            } else {
+                layer.tips('两次输入的密码不一致','#password2',{tips:[2,'purple'],time:999000});
+                $('#password2').removeClass('pwd2');
+
+
+            }
+        });
+
+        //判断阅读
+        $('#checkb').click(function () {
+            if ($('#checkb').is(':checked')) {
+                $('#checkb').addClass('yd');
+
+            } else {
+                $('#checkb').removeClass('yd');
+            }
+        });
+
+        //判断注册
+        $('.line').mouseover(function () {
+
+            if($("#subm").hasClass("yhm email phone yzm pwd yd")){
+                $('#subm').css('background','darkviolet');
+                $('#subm').attr('disabled',false);
+            }else{
+                $('#subm').css('background','#F3FBFE');
+                $('#subm').attr('disabled',true);
+            }
+        });
+
+        $('.line').mouseover(function () {
+            $('#subm').removeClass();
+            if ($('#username').hasClass('yhm')) {
+                $('#subm').addClass('yhm');
+            }else{
+                $('#subm').removeClass();
+
+                return false;
+            }
+            //email
+            if ($('#email').hasClass('email')) {
+                $('#subm').addClass('email');
+            }else{
+                $('#subm').removeClass();
+                return false;
+            }
+            //phone
+            if ($('#phone').hasClass('phone')) {
+                $('#subm').addClass('phone');
+            }else{
+                $('#subm').removeClass();
+                return false;
+            }
+            //yzm
+            if ($('#yzm').hasClass('yzm')) {
+                $('#subm').addClass('yzm');
+            } else{
+                $('#subm').removeClass();
+                return false;
+            }
+            //password
+//            var pwd = $('#password').val();
+//            var pwd2 = $('#password2').val();
+//            if (pwd == pwd2) {
+//                $('#password2').addClass('pwd');
+//            }
+            if ($('#password2').hasClass('pwd pwd2') || $('#password2').hasClass('pwd2 pwd')) {
+                $('#subm').addClass('pwd');
+            } else {
+                $('#subm').removeClass();
+                return false;
+            }
+            if ($('#checkb').hasClass('yd')) {
+                $('#subm').addClass('yd');
+            }else{
+                $('#subm').removeClass();
+                return false;
+            }
+        });
+
+    });
+
+
+</script>

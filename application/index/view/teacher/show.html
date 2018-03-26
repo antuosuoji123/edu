@@ -1,0 +1,92 @@
+<!--公共文件样式-->
+{include file="public/head" /}
+<!--/公共文件样式-->
+
+<body>
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+{include file="public/nav" /}
+<!--网站导航 end--> 
+<link  rel="stylesheet" type="text/css" href="__PUBLIC__/HOME_BOOTS/css/bootstrapZhongZhong.css" />
+
+<!--web main body start-->
+<div class="w-1140 p-l-30 p-r-30 bg-c-ffffff ovhidden fl">
+    <!--老师列表 start-->
+    {volist name="page" id="k"}
+    <ul class="qltec_list">
+        <li class="w-all p-b-30 m-t-30 bd-bs-f8f8f8 fl"> <a href="/index/teacher/teacherxq?id={$k.id}" class="dsblock w-140 hg-140 ql_teaimg ovhidden fl"><img src="/public/upload/brand/2017/12-08/82f49f8fb70528086362e0cd2bba858d.jpg" class="bd-rd-70" width="140" height="140" alt=""></a>
+            <div class="w-930 fr">
+                <div class="w-all m-t-3 m-b-3 fl"> <span class="dsblock w-80 fs-14 ftc-000000 line-h22 ft-w-b m-r-10 fl">教师姓名：</span>
+                    <p class="w-840 fs-14 line-h22 ftc-787878 fl">{$k.username}</p>
+                </div>
+                <div class="w-all m-t-3 m-b-3 fl"> <span class="dsblock w-80 fs-14 ftc-000000 line-h22 ft-w-b m-r-10 fl">擅长科目：</span>
+                    <p class="w-840 fs-14 line-h22 ftc-787878 fl">{$k.goodclass}</p>
+                </div>
+                <div class="w-all m-t-3 m-b-3 fl"> <span class="dsblock w-80 fs-14 ftc-000000 line-h22 ft-w-b m-r-10 fl">教师荣誉：</span>
+                    <p class="w-840 fs-14 line-h22 ftc-787878 hg-44 tw_hidden fl">{$k.honor}</p>
+                </div>
+                <div class="w-all m-t-3 m-b-3 fl"> <span class="dsblock w-80 fs-14 ftc-000000 line-h22 ft-w-b m-r-10 fl">教师介绍：</span>
+                    <p class="w-840 fs-14 line-h22 ftc-787878 hg-44 tw_hidden fl">{$k.introduce}</p>
+                </div>
+            </div>
+        </li>
+        {/volist}
+
+
+
+
+        <div class="clear"></div>
+    </ul>
+    <!--老师列表 end-->
+    <div class="w-1140 hg-30 fl" ></div>
+    <!--pages start-->
+        <div style="text-align: center;">{$page}</div>
+    <br/>
+    <!--pages end-->
+    <div class="w-1140 hg-30 fl"></div>
+</div>
+<!--web main body end-->
+
+    </div>
+</div>
+
+<!--like start-->
+<div class="w-all w-minw bg-c-f6f6f6 ovhidden">
+    <div class="w-main m-auto"> 
+        <!--title start-->
+        <div class="w-main ovhidden p-t-10 fl">
+            <h3 class="fl fs-20 ft-w-b line-h40"><span class="dsblock ql_icon ql_like tx-ind m-r-15 fl">猜你喜欢</span>猜你喜欢</h3>
+        </div>
+        <!--title end-->
+        <ul class="ql_likeclass w-1210 ovhidden">
+            <li class="w-230 bg-c-ffffff m-t-10 m-r-6 m-l-6 m-b-10 fl"> <a href="课程详情.html" class="dsblock w-230 hg-165 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS/12.jpg" alt=""/> </a> <a href="课程详情.html" class="w-210 p-l-10 p-r-10 fl">
+                <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">初中全科1V1定制初中全科1V1定制</h3>
+                <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：300</span> </a> </li>
+            <li class="w-230 bg-c-ffffff m-t-10 m-r-6 m-l-6 m-b-10 fl"> <a href="课程详情.html" class="dsblock w-230 hg-165 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS/12.jpg" alt=""/> </a> <a href="课程详情.html" class="w-210 p-l-10 p-r-10 fl">
+                <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">初中全科1V1定制初中全科1V1定制</h3>
+                <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：300</span> </a> </li>
+            <li class="w-230 bg-c-ffffff m-t-10 m-r-6 m-l-6 m-b-10 fl"> <a href="课程详情.html" class="dsblock w-230 hg-165 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS/12.jpg" alt=""/> </a> <a href="课程详情.html" class="w-210 p-l-10 p-r-10 fl">
+                <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">初中全科1V1定制初中全科1V1定制</h3>
+                <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：300</span> </a> </li>
+            <li class="w-230 bg-c-ffffff m-t-10 m-r-6 m-l-6 m-b-10 fl"> <a href="课程详情.html" class="dsblock w-230 hg-165 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS/12.jpg" alt=""/> </a> <a href="课程详情.html" class="w-210 p-l-10 p-r-10 fl">
+                <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">初中全科1V1定制初中全科1V1定制</h3>
+                <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：300</span> </a> </li>
+            <li class="w-230 bg-c-ffffff m-t-10 m-r-6 m-l-6 m-b-10 fl"> <a href="课程详情.html" class="dsblock w-230 hg-165 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS/12.jpg" alt=""/> </a> <a href="课程详情.html" class="w-210 p-l-10 p-r-10 fl">
+                <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">初中全科1V1定制初中全科1V1定制</h3>
+                <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：300</span> </a> </li>
+        </ul>
+        <div class="w-amin hg-30 ovhidden"></div>
+    </div>
+</div>
+<!--like end--> 
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <script src="__PUBLIC__/HOME_JS/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+
+{volist name='data' id='dz'}
+
+<form action="/index/person/xdz?id={$dz.id}" method="post">
+    <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="right"><span class="xh">*</span>姓名：&nbsp;</td>
+            <td><input class="wi80-BFB" name="consignee" type="text" value="{$dz.consignee}" maxlength="12" required /></td>
+        </tr>
+        <tr>
+            <td align="right"><span class="xh">*</span>联系地址：&nbsp;</td>
+            <td>
+                <div id="distpicker5">
+                    <select class="form-control" placeholder="{$dz.address}" name="sheng" id="province10"> </select>
+                    <select class="form-control" name="s"  id="city10"></select>
+                    <select class="form-control" name="x" id="district10"></select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top"><span class="xh">*</span>详细地址：&nbsp;</td>
+            <td><textarea class="he110 wi80-BFB re-no" value="{$dz.address}" name="address" id="address" required placeholder="{$dz.address}" maxlength="100">{$dz.address}</textarea></td>
+        </tr>
+
+        <tr>
+            <td align="right"><span class="xh">*</span>手机或固定电话：&nbsp;</td>
+            <td>
+                <input class="wi40-BFB" type="text" id="phone" name="mobile" value="{$dz.phone}"  maxlength="15"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="pa-50-0">&nbsp;</td>
+            <td align="right">
+                <button type="submit" id="sub"  class="box-ok ma-le--70"><span>保存报名信息</span></button>
+            </td>
+        </tr>
+    </table>
+</form>
+{/volist}
+
+
+<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script src="__PUBLIC__/HOME_JS/distpicker.data.js"></script>
+<script src="__PUBLIC__/HOME_JS/distpicker.js"></script>
+<script src="__PUBLIC__/HOME_JS/main.js"></script>
+<script>
+    //判断号码
+    $('td').mouseout(function () {
+        $.ajax({
+            url:'/index/user/phone',
+            type:'post',
+            data:{name:$('#phone').val()},
+            success:success
+        });
+        function success(data)
+        {
+            if (data == 1) {
+                $('#sub').attr('disabled',false);
+            } else if (data == 2){
+                $('#sub').attr('disabled',true);
+            } else if (data == 0) {
+                $('#sub').attr('disabled',true);
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

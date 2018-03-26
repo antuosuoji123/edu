@@ -1,0 +1,73 @@
+<div class="w-all w-minw bd-sd-b hg-45">
+    <div class="w-main m-auto"> 
+        <!-- top left start-->
+        <div class="fl"> <span class="fs-12 line-h45 ftc-000000 dsblock fl"> 济南</span> <a href="城市.html" class="dsblock fl line-h45 fs-12 ftc-fc0503">[切换地图]</a> <a href="/" class="dsblock fl fs-12 ftc-000000 line-h45 m-l-70">首页</a>
+            <!--top 导航 start-->
+            <div class="hover-topnav fl m-l-45">
+                <div class="dh_nav fl fs-12 ftc-000000 line-h45"><span class="dsblock hg-45"><i class="p-l-15 ql_icon dh_topnav hg-45 fl"></i>导航</span>
+                     <ul class="dh_nav_sub bg-c-ffffff bd-sd-b">
+                         <li> <a href="/"><i class="ql_icon"></i>首页</a> </li>
+                         <li> <a href="/index/course/show"><i class="ql_icon"></i>小学</a> </li>
+                        <li> <a href="/index/room/show"><i class="ql_icon"></i>双视课堂</a> </li>
+                        <li> <a href="/index/calendar/show"><i class="ql_icon"></i>考试日历</a> </li>
+                        <li> <a href="/index/teacher/show"><i class="ql_icon"></i>讲师</a> </li>
+                        <li> <a href="/index/joinin/show"><i class="ql_icon"></i>加盟</a> </li>
+                        <li> <a href="/index/school/show"><i class="ql_icon"></i>分校</a> </li>
+                        <li> <a href="/index/details/show"><i class="ql_icon"></i>资讯</a> </li>
+                        <li> <a href="/index/about/show"><i class="ql_icon"></i>联系我们</a> </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <!--top 导航 end--> 
+            <!--top wap start-->
+            <div class="hover-topnav fl m-l-45">
+                <div class="dh_nav fl fs-12 ftc-000000 line-h45"><span class="dsblock hg-45"><i class="p-l-15 ql_icon top_wapewem hg-45 fl"></i>手机端</span>
+                    <div class="top_wap_ewem bg-c-ffffff bd-sd-b"> <img src="__PUBLIC__/HOME_PICS/wap.png" width="100" alt=""/>
+                        <p class="w-all fs-13 text-c line-h25">扫描二维码</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top left end--> 
+        <!-- top right start-->
+        <div class="fr"> 
+            <!--登录注册 start-->
+            {if empty($Think.Session.uid)}
+            <div class="fl"> <a class="fs-12 ftc-000000 line-h45" href="/index/user/login"><i class="p-l-20 ql_icon login_icon hg-45 fl m-r-10"></i>请登录</a> <span class="fs-12 ftc-000000 line-h45 m-l-15 m-r-15">|</span> <a class="fs-12 ftc-000000 line-h45" href="/index/user/register">注册</a> </div>
+            {else}
+            <div class="fl"> <a style="color:orange;font-size:16px;" class="fs-12 ftc-000000 line-h45" href="/index/person">{$Think.session.name}</a> <span class="fs-12 ftc-000000 line-h45 m-l-15 m-r-15">|</span> <a class="fs-12 ftc-000000 line-h45" href="/index/user/loginout" id="exit">exit</a> </div>
+            <script>
+               /* $('#exit').on('mouseover',function () {
+                    $('#exit').css('color','violet');
+                });
+                $('#exit').on('mouseout',function () {
+                    $('#exit').css('color','black');
+                });*/
+            </script>
+            {/if}
+            <!--登录注册 end--> 
+            <!--我的购物车 start-->
+            <div class="fl m-l-30" id="hd-my-cart">
+                <div class="my-cart"> <i class="p-l-25 ql_icon cart_icon hg-45 fl m-r-10"><em>0</em></i>
+                    <p class="fl fs-12 ftc-000000 line-h45"><a href="/index/cart/cart">我的购物车</a></p>
+                </div>
+            </div>
+            <!--我的购物车 end--> 
+            <!--top 客服中心 start-->
+            <div class="hover-topkf fl m-l-45">
+                <div class="top_kf fl fs-12 ftc-000000 line-h45"><span class="dsblock hg-45">客服中心<i class="p-l-10 m-l-10 ql_icon top_kficon hg-45 fr"></i></span>
+                    <ul class="top_kf_list bg-c-ffffff bd-sd-b">
+                        <li> <a href="#"><i class="ql_icon"></i>加盟热线  ：400-996-9910</a> </li>
+                        <li> <a href="#"><i class="ql_icon"></i>联系电话：0531-81768062</a> </li>
+                        <li> <a href="#"><i class="ql_icon"></i>邮箱：qifengedu@yeah.net</a> </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <!--top 客服中心 start--> 
+        </div>
+        <!-- top right end--> 
+    </div>
+</div>
+<div class="clear"></div>

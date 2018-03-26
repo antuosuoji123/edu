@@ -1,0 +1,56 @@
+<!--公共文件样式-->
+{include file="public/head" /}
+<!--/公共文件样式-->
+
+<body>
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+{include file="public/nav" /}
+<!--网站导航 end-->
+<div class="w-all w-minw bg-c-fcfcfc ovhidden">
+    <div class="w-main m-auto ovhidden">
+        <!--面包屑 start-->
+        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl">
+            网站位置：首页  >  关于齐峰        </div>
+        <!--面包屑 end-->
+
+        <!--sub nav start -->
+        <div class="w-all bg-c-ffffff ovhidden p-t-14 p-b-18">
+            <ul class="ql_subnav">
+                <li class="fl"><a href="/index/about/aboutqf" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl navcur">关于齐峰</a></li>
+                <li class="fl"><a href="/index/about/qfys" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl ">齐峰优势</a></li>
+                <li class="fl"><a href="/index/about/honor" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl">荣誉资质</a></li>
+                <li class="fl"><a href="/index/about/zxns" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl">招贤纳士</a></li>
+                <li class="fl"><a href="/index/about/show" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl ">联系我们</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <script>
+            $(function () {
+                $('div').mouseover(function () {
+                    $('#lit1').addClass('navcur');
+                });
+            });
+        </script>
+        <!--sub nav end -->
+        <div class="w-all hg-10"></div>
+
+        <!--main body start-->
+        <div class="w-all">
+            <p><img src="__PUBLIC__/HOME_IMG/public/upload/temp/2017/09-18/0e489aa61a0a5235cf255063809b08f9.jpg" title="0e489aa61a0a5235cf255063809b08f9.jpg"/></p><p><br/></p><p><img src="__PUBLIC__/HOME_IMG/public/upload/temp/2017/09-18/285499c88d3c678a8a63c7b1ae908e05.jpg" title="285499c88d3c678a8a63c7b1ae908e05.jpg"/><img src="__PUBLIC__/HOME_IMG/public/upload/temp/2017/09-18/c166b9beb695a4ee800ec4f0d30a6e2b.jpg" title="c166b9beb695a4ee800ec4f0d30a6e2b.jpg" alt="c166b9beb695a4ee800ec4f0d30a6e2b.jpg"/></p><p><br/></p>            </div>
+        <div class="w-all hg-60"></div>
+        <!--main body end-->
+
+    </div>
+
+    <!--web footer start-->
+    {include file="public/footer" /}
+    <!--web footer copyright start-->
+</body>
+</html>

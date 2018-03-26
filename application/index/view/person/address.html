@@ -1,0 +1,141 @@
+{include file="public/personheader"}
+
+<div class="home-index-middle">
+    <div class="w1224">
+        <div class="g-crumbs">
+            <a href="/index/person">个人中心</a>
+            <i class="litt-xyb"></i>
+            <span>报名信息管理</span>
+        </div>
+        <div class="home-main">
+            {include file="public/personleft"}
+
+
+
+
+
+            <div class="ri-menu fr">
+                <div class="menumain p">
+                    <div class="goodpiece">
+                        <h1>报名信息管理</h1>
+                        <a onclick="address_edit()" href="javascript:;"><span class="co_blue">新增报名信息</span></a>
+                    </div>
+
+
+
+
+                    <div class="grou_num_list address_list_jl ma-to-20">
+                        <ul class="grou_tite">
+                            <li class="sx2"><span>姓名</span></li>
+                            <li class="sx1"><span>联系地址</span></li>
+                            <li class="sx3"><span>联系电话</span></li>
+                            <li class="sx4"><span>操作</span></li>
+                        </ul>
+                        {volist name="data" id="dz"}
+                        <ul class="add_conta">
+                            <li class="sx2">
+                                <span>{$dz.consignee}</span>
+                            </li>
+                            <li class="sx1"><span>{$dz.province}</span><span>{$dz.city}</span><span>{$dz.county}</span><span>{$dz.address}</span></li>
+                            <li class="sx3"><span>{$dz.phone}</span></li>
+                            <li class="sx4">
+                                {if ($dz.is_default)==1}
+                                <span><a href="/index/person/def?id={$dz.id}" style="display:inline-block;background-color:darkcyan;">设为默认</a></span>             {else}
+                                <span><a href="/index/person/def?id={$dz.id}">设为默认</a></span>
+                                {/if}
+                                <input type="hidden" value="{$dz.id}" id="nm"/>
+                                <a href="javascript:address_edit('{$dz.id}')" class="co_blue">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/index/person/del?id={$dz.id}" class="co_blue" value="11">删除</a></li>
+
+                        </ul>
+                        {/volist}
+                    </div>
+                    <p class="gp_num2">已保存<em class="red">2</em>条报名信息，还可以保存<em class="red">18</em>条报名信息</php>
+
+
+                </div>
+
+
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+<script type="text/javascript">
+    $(function(){
+        $('.choice_hobby').click(function(){
+            $(this).toggleClass('red');
+        });
+
+    })
+
+    /**
+     * 新增修改收货地址
+     * id 为零 则为新增, 否则是修改
+     *  使用 公共的 layer 弹窗插件  参考官方手册 http://layer.layui.com/
+     */
+    function address_edit(id)
+    {
+        if(id > 0)
+        //修改
+        var url = "/index/person/xdizhi?id="+id;
+
+    else
+        //增加
+            var url = "/index/person/dizhi";
+        layer.open({
+            type: 2,
+            title: '编辑报名信息',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['880px', '480px'],
+            content: url,
+
+        });
+    }
+    function cao()
+    {
+        var id =$('#nm').val();
+        $.ajax({
+            url:'/index/person/testStatic',
+            success:success
+        });
+        function success(data)
+        {
+//            console.log(data);
+            if (data ==2) {
+             call_back_fun();
+            }
+        }
+    }
+
+    // 添加修改收货地址回调函数
+    function call_back_fun(){
+            layer.closeAll(); // 关闭窗口
+            location.href = location.href;
+
+
+    }
+
+
+    $('#sss').click(function () {
+        layer.open({
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '240px'], //宽高
+            content: "<form action='/index/person/upload'  enctype='multipart/form-data' method='post'><input type='file' id='dizhi' name='image'/><br/><input type='submit' id='sub' value='确认'/></form>   "+"<script>$(function () {$('#sub').click(function () {                 if ($('#dizhi').val()) {       if(confirm('点击确认上传头像，是否继续')){  }else{return false} }else{alert('请选择图片');return false}    })})<\/script>"
+        });
+
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

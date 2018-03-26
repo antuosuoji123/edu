@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>首页_齐峰教育</title>
+<meta name="keywords" content="齐峰教育">
+<meta name="description" content="齐峰教育">
+<meta name="author" content="山东商讯在线 http://www.sdsoon.com/">
+<link rel="stylesheet" href="__PUBLIC__/HOME_CSS/qfbase.css">
+<!--齐峰的共有样式-->
+<link rel="stylesheet" href="__PUBLIC__/HOME_CSS/ql_index.css">
+<!--齐峰首页banner样式-->
+<script type="text/javascript" src="__PUBLIC__/HOME_JS/jquery-1.11.3.min.js"></script>
+<body>
+<!--web-top start-->
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+<div class="w-all w-minw hg-60 bd-bs-e9511b bg-c-ffffff ql_webnav"> 
+    <!--网站导航 start-->
+    <div class="w-main m-auto ps-r hg-60"> 
+        <!--全部商品分类-->
+        <div class="hc_lnav jslist">
+            <div class="allbtn">
+                <h2><a href="#">全部商品分类</a></h2>
+                <ul style="width:250px" class="jspop box">
+
+                    <!--导航-->
+{foreach $info as $val}
+<li class="a1">
+<div class="tx"><a href="{$val.name}">{$val.name}</a> </div>
+<dl>
+{foreach $val['child'] as $vall}
+
+<dd> <a href="/index/course/show/{$vall.id}">{$vall.name}/</a></dd>
+ {/foreach}
+</dl>
+
+
+<div class="pop">
+{foreach $val['child'] as $vall}
+<dl>
+<dt><a href="/index/course/show/{$vall.id}">{$vall.name} ></a></dt>
+
+<dd> 
+{foreach $vall['child2'] as $valll}
+<a class="ui-link" href="/index/course/show/id/{$valll.id}">{$valll.name}</a><span>/</span> 
+{/foreach}
+</dd>
+</dl>
+{/foreach}
+<div class="clr"></div>
+</div>
+</li>
+{/foreach}
+                   <!--导航-->
+                </ul>
+            </div>
+        </div>
+        <!--全部商品分类-->
+         <ul class="w-950 hg-60 ql_nav">
+        <li><a href="/index/index/index" class="cur">首页</a></li>
+        <li><a href="/index/course/show">小学</a></li>
+        <li><a href="/index/room/show">双师课堂</a></li>
+        <li><a href="/index/calendar/show">考试日历</a></li>
+        <li><a href="/index/teacher/show">名师</a></li>
+        <li><a href="/index/joinin/show" class="ql_navhot">招商加盟</a></li>
+        <li><a href="/index/school/show">分校</a></li>
+        <li><a href="/index/details/show">资讯</a></li>
+        <li><a href="/index/about/show">联系我们</a></li>
+    </ul>
+    </div>
+</div>
+<!--网站导航 end-->
+
+<!--web banner start-->
+<div class="w-all w-minw banner ps-r">
+    <div id="full-screen-slider">
+        <ul id="slides">
+            <li style="background:url('__PUBLIC__/HOME_PICS//ban1.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+            <li style="background:url('__PUBLIC__/HOME_PICS//ban2.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+            <li style="background:url('__PUBLIC__/HOME_PICS//ban3.jpg') center top no-repeat;"><a href="javascript:void(0)"></a></li>
+        </ul>
+    </div>
+    <div class="w-180 p-t-33 p-r-25 p-b-13 p-l-26 ban_adbg ovhidden ps-a qlban_ad">
+        <ul class="w-all">
+            <li class="w-all p-t-9 m-b-9 fl">
+                <div class="w-35 tx-ind fl">招商加盟</div>
+                <a href="/index/joinin/show" class="dsblock w-140 fr">
+                <h3 class="w-all fs-16 ftc-ffffff line-h28 one_hidden">招商加盟</h3>
+                <p class="w-all fs-13 ftc-d3d3d3 line-h20 one_hidden">加入齐峰成就自己</p>
+                </a> </li>
+            <li class="w-all p-t-9 m-b-9 bd-td-798a93 fl">
+                <div class="w-35 tx-ind fl">双师课堂</div>
+                <a href="/index/room/show" class="dsblock w-140 fr">
+                <h3 class="w-all fs-16 ftc-ffffff line-h28 one_hidden">双师课堂</h3>
+                <p class="w-all fs-13 ftc-d3d3d3 line-h20 one_hidden">线上线下相结合授课方式</p>
+                </a> </li>
+            <li class="w-all p-t-9 m-b-9 bd-td-798a93 fl">
+                <div class="w-35 tx-ind fl">考试日历</div>
+                <a href="/index/calendar/show" class="dsblock w-140 fr">
+                <h3 class="w-all fs-16 ftc-ffffff line-h28 one_hidden">考试日历</h3>
+                <p class="w-all fs-13 ftc-d3d3d3 line-h20 one_hidden">不错过检测成绩的机会</p>
+                </a> </li>
+            <li class="w-all p-t-9 m-b-9 bd-td-798a93 fl">
+                <div class="w-35 tx-ind fl">资料下载</div>
+                <a href="下载.html" class="dsblock w-140 fr">
+                <h3 class="w-all fs-16 ftc-ffffff line-h28 one_hidden">资料下载</h3>
+                <p class="w-all fs-13 ftc-d3d3d3 line-h20 one_hidden">学习资料一网打尽</p>
+                </a> </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/HOME_JS/banner.index.js"></script>
+<!--web banner end-->
+<!--web home main-body start-->
+<div class="w-all w-minw bg-c-fcfcfc ovhidden">
+    <!--hot_news start-->
+    <div class="w-main m-auto">
+        <!--title start-->
+        <div class="w-main m-t-15 ovhidden fl">
+            <h3 class="fl fs-20 ft-w-b line-h50"><span class="dsblock ql_icon ql_h_news tx-ind m-r-15 fl">新闻资讯</span>新闻资讯</h3>
+            <a href="资讯列表.html" class="fr fs-14 ftc-000000 line-h50">查看更多></a> </div>
+        <!--title end-->
+        <div class="w-main">
+            <!--hot_news left start-->
+            <div class="w-285 hot_news bg-c-ffffff m-t-6 fl"> <a href="资讯详情.html" class="dsblock w-all hg-390 ovhidden fl"> <img src="__PUBLIC__/HOME_PICS//1.jpg" alt=""/> </a> <a href="资讯详情.html" class="dsblock w-all p-t-12 p-b-8 text-c fl">
+                <h3 class="fs-14 ftc-000000 w-265 p-l-10 p-r-10 one_hidden line-h25">登高望远--齐峰教育给你不一样的高度！登高望远--齐峰教育给你不一样的高度！</h3>
+                <p class="fs-14 ftc-888888 w-265 p-l-10 p-r-10 one_hidden line-h25">【2017-08-01】</p>
+                </a> </div>
+            <!--hot_news left end-->
+            <!--hot_news right start-->
+            <div class="w-906 fr">
+                <!--hot_news right top start-->
+                <ul class="hotnew">
+                    <li class="w-290 m-l-6 m-r-6 bg-c-ffffff fl"> <a href="资讯详情.html" class="dsblock w-290 hg-164 fl"> <img src="__PUBLIC__/HOME_PICS//2.jpg" width="290" height="164" alt=""/> </a> <a href="资讯详情.html" class="dsblock w-all fl text-c">
+                        <h3 class="fs-14 ftc-000000 w-270 p-l-10 p-r-10 one_hidden line-h25">登高望远--齐峰教育给你不一样的高度！登高望远--齐峰教育给你不一样的高度！</h3>
+                        <p class="fs-14 ftc-888888 w-270 p-l-10 p-r-10 one_hidden line-h25">【2017-08-01】</p>
+                        </a> </li>
+                    <li class="w-290 m-l-6 m-r-6 bg-c-ffffff fl"> <a href="资讯详情.html" class="dsblock w-290 hg-164 fl"> <img src="__PUBLIC__/HOME_PICS//3.jpg" width="290" height="164" alt=""/> </a> <a href="资讯详情.html" class="dsblock w-all fl text-c">
+                        <h3 class="fs-14 ftc-000000 w-270 p-l-10 p-r-10 one_hidden line-h25">登高望远--齐峰教育给你不一样的高度！登高望远--齐峰教育给你不一样的高度！</h3>
+                        <p class="fs-14 ftc-888888 w-270 p-l-10 p-r-10 one_hidden line-h25">【2017-08-01】</p>
+                        </a> </li>
+                    <li class="w-290 m-l-6 m-r-6 bg-c-ffffff fl"> <a href="资讯详情.html" class="dsblock w-290 hg-164 fl"> <img src="__PUBLIC__/HOME_PICS//4.jpg" width="290" height="164" alt=""/> </a> <a href="资讯详情.html" class="dsblock w-all fl text-c">
+                        <h3 class="fs-14 ftc-000000 w-270 p-l-10 p-r-10 one_hidden line-h25">登高望远--齐峰教育给你不一样的高度！登高望远--齐峰教育给你不一样的高度！</h3>
+                        <p class="fs-14 ftc-888888 w-270 p-l-10 p-r-10 one_hidden line-h25">【2017-08-01】</p>
+                        </a> </li>
+                </ul>
+                <!--hot_news right top end-->
+                <!--hot_news right bottom start-->
+                <div class="w-895 m-t-20 m-auto">
+                    <ul id="hotnewlist" class="bg-c-ffffff p-t-15 p-l-25 p-b-19 p-r-30 ovhidden">
+                        <p class="hg-185 w-1 tx-ind">竖线</p>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <li><a href="资讯详情.html">
+                            <h3 class="w-270 fl fs-13 line-h32 ftc-000000 one_hidden">齐峰教育邀您一起过暑假齐峰教育邀您一起过暑假!</h3>
+                            <span class="dsblock w-115 fs-13 line-h32 ftc-8c8c8c lspa-1 fr">【2017-08-01】</span></a></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <script type="text/javascript">
+                            window.onload = function () {
+                                var ul = document.getElementById ("hotnewlist");
+                                var lis = ul.getElementsByTagName("li");
+                                for (var i = 0; i < lis.length; i++) {
+                                };
+                                lis[1].className="note";
+                                lis[3].className="note";
+                                lis[5].className="note";
+                                lis[7].className="note";
+                                lis[9].className="note";
+                                lis[11].className="note";
+                            }
+                        </script>
+                </div>
+                <!--hot_news right bottom end-->
+            </div>
+            <!--hot_news right end-->
+        </div>
+    </div>
+    <!--hot_news start-->
+    <!--分割线 start-->
+    <div class="w-main m-auto">
+        <div class="w-main fl hg-30"></div>
+        <div class="w-main fl hg-1 bg-c-e5e5e5"></div>
+        <div class="w-main fl hg-30"></div>
+    </div>
+    <!--分割线 start-->
+    <!--web home Advertisement start-->
+    <div class="w-main m-auto"> <a href="分校列表.html" class="dsblock homead ovhidden w-380 hg-170 fl"><img src="__PUBLIC__/HOME_PICS//5.jpg"  alt=""/></a> <a href="招商单页.html" class="dsblock homead ovhidden w-380 hg-170 m-l-30 fl"><img src="__PUBLIC__/HOME_PICS//6.jpg"  alt=""/></a> <a href="联系我们.html" class="dsblock homead ovhidden w-380 hg-170 m-l-30 fl"><img src="__PUBLIC__/HOME_PICS//7.jpg"  alt=""/></a> </div>
+    <!--web home Advertisement end-->
+    <!--web home entrance start-->
+    <div class="w-main m-auto"> <a href="#" class="dsblock home_ad w-285 hg-135 fl m-t-40 ovhidden"><img src="__PUBLIC__/HOME_PICS//8.jpg" width="285" height="135" alt=""/></a> <a href="#" class="dsblock home_ad w-285 hg-135 fl m-l-20 m-t-40 ovhidden"><img src="__PUBLIC__/HOME_PICS//9.jpg" width="285" height="135" alt=""/></a> <a href="#" class="dsblock home_ad w-285 hg-135 fl m-l-20 m-t-40 ovhidden"><img src="__PUBLIC__/HOME_PICS//10.jpg" width="285" height="135" alt=""/></a> <a href="#" class="dsblock home_ad w-285 hg-135 fl m-l-20 m-t-40 ovhidden"><img src="__PUBLIC__/HOME_PICS//11.jpg" width="285" height="135" alt=""/></a> </div>
+    <!--web home entrance end-->
+    <!--分割线 start-->
+    <div class="w-main m-auto">
+        <div class="w-main fl hg-40"></div>
+        <div class="w-main fl hg-1 bg-c-e5e5e5"></div>
+        <div class="w-main fl hg-8"></div>
+    </div>
+    <!--分割线 start-->
+    <!--精选课程 start-->
+    <div class="w-main m-auto">
+        <!--title start-->
+        <div class="w-main m-t-15 ovhidden fl">
+            <h3 class="fl fs-20 ft-w-b line-h50"><span class="dsblock ql_icon ql_h_class tx-ind m-r-15 fl">精选课程</span>精选课程</h3>
+            <a href="课程列表页面.html" class="fr fs-14 ftc-000000 line-h50">查看更多></a> </div>
+        <!--title end-->
+    </div>
+    <div class="w-main m-auto">
+        <ul class="home_calss w-1224 ovhidden">
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <li class="w-280 m-l-13 m-r-13 bg-c-ffffff m-t-8 m-b-23 fl"> <a href="课程详情.html" class="dsblock w-280 hg-200 ovhidden ps-r"> <img src="__PUBLIC__/HOME_PICS//12.jpg" alt=""/> </a>
+                <div class="w-255 p-l-10 p-r-15 fl">
+                    <div class="home_calsstxt w-155 fl">
+                        <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">高中数学提高班高中数学提高班</h3>
+                        <span class="dsblock w-all fs-14 ftc-ff0000 line-h32 fl">班   容：3人开班</span> </div>
+                    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">免费体验</a> </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <!--精选课程 end-->
+    <!--分割线 start-->
+    <div class="w-main m-auto">
+        <div class="w-main fl hg-11"></div>
+        <div class="w-main fl hg-1 bg-c-e5e5e5"></div>
+        <div class="w-main fl hg-8"></div>
+    </div>
+    <!--分割线 start-->
+    <!--名师团队 start-->
+    <div class="w-main m-auto">
+        <!--title start-->
+        <div class="w-main m-t-15 ovhidden fl">
+            <h3 class="fl fs-20 ft-w-b line-h50"><span class="dsblock ql_icon ql_h_tea tx-ind m-r-15 fl">名师团</span>名师团</h3>
+            <a href="讲师.html" class="fr fs-14 ftc-000000 line-h50">查看更多></a> </div>
+        <!--title end-->
+    </div>
+    <div class="w-main m-auto">
+        <ul class="home_tearch w-main ovhidden">
+            <li>
+                <div class="h_tea_img w-120"> <a href="讲师详情.html" class="dsblock"><img src="__PUBLIC__/HOME_PICS//13.png" alt=""/></a>
+                    <p class="w-all fl fs-14 ft-w-b ftc-000000 text-c line-h30">齐峰</p>
+                </div>
+                <div class="w-200 fl">
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师硅谷级名师</h3>
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师金宗奖运营总监</h3>
+                </div>
+                <div class="w-all fl fs-14 ftc-000000 line-h22 m-t-50 fu_hidden"> 这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。 </div>
+            </li>
+            <li>
+                <div class="h_tea_img w-120"> <a href="讲师详情.html" class="dsblock"><img src="__PUBLIC__/HOME_PICS//13.png" alt=""/></a>
+                    <p class="w-all fl fs-14 ft-w-b ftc-000000 text-c line-h30">齐峰</p>
+                </div>
+                <div class="w-200 fl">
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师硅谷级名师</h3>
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师金宗奖运营总监</h3>
+                </div>
+                <div class="w-all fl fs-14 ftc-000000 line-h22 m-t-50 fu_hidden"> 这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。 </div>
+            </li>
+            <li>
+                <div class="h_tea_img w-120"> <a href="讲师详情.html" class="dsblock"><img src="__PUBLIC__/HOME_PICS//13.png" alt=""/></a>
+                    <p class="w-all fl fs-14 ft-w-b ftc-000000 text-c line-h30">齐峰</p>
+                </div>
+                <div class="w-200 fl">
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师硅谷级名师</h3>
+                    <h3 class="fs-14 fl ftc-000000 line-h22">疯狂老师金宗奖运营总监</h3>
+                </div>
+                <div class="w-all fl fs-14 ftc-000000 line-h22 m-t-50 fu_hidden"> 这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。这里放优秀教师的介绍，或者个人著名言论，或者其他的文字介绍。 </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <!--分割线 start-->
+        <div class="w-main m-auto hg-60"></div>
+        <!--分割线 start-->
+    </div>
+    <!--名师团队 end-->
+</div>
+<!--web home main-body end-->
+
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+</body>
+</html>

@@ -1,0 +1,124 @@
+{include file="public/personheader"}
+
+
+
+<div class="home-index-middle">
+    <div class="w1224">
+        <div class="g-crumbs">
+            <a href="/index/person">个人中心</a>
+            <i class="litt-xyb"></i>
+            <span>我的评价</span>
+        </div>
+        <div class="home-main">
+            {include file="public/personleft"}
+            <div class="ri-menu fr">
+                <div class="menumain p">
+                    <div class="goodpiece">
+                        <h1>我的评价</h1>
+                        <!--<a href=""><span class="co_blue">帮助</span></a>-->
+                    </div>
+                    <div class="orderbook-list">
+                        <div class="time-sala p">
+                            <ul>
+                                <li class="mal-l">
+                                    <a href="/index/person/mycomment">全部</a>
+                                </li>
+                                <li class="red">
+                                    <a href="/index/person/daicomment">待评论订单</a>
+                                </li>
+                                <li class="mal-l">
+                                    <a href="/index/person/yicomment">已评论</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="he"></div>
+                        <div class="car-none-pl">
+                            <i class="account-acco1"></i>您还没有订单，<a href="/">快去逛逛吧~</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="operating fixed" id="bottom">
+                    <div class="fn_page clearfix">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-s-->
+
+
+
+
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+<script type="text/javascript">
+    $(function(){
+        $('.s5clic').click(function(){
+            $('.hid-derei').slideToggle(400);
+            $(this).animate({opacity:"1"},200,function(){
+                $(this).toggleClass('sxbb')
+            })
+        })
+    })
+
+    $(function() {
+        var speed = 380;
+        $('#nav ul li').click(function() {
+            $(this).find('a').addClass('selected').parent().siblings().find('a').removeClass('selected')
+            var pl = $(this).position().left;
+            var liw = $(this).width();
+            $('.wrap-line').stop().animate({
+                left: pl,
+                width: liw
+            }, speed);
+        })
+    });
+    //取消订单
+    function cancel_order(id){
+        layer.confirm('确定取消订单?', {
+                    btn: ['确定','取消'] //按钮
+                }, function(){
+                    // 确定
+                    location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
+                }, function(index){
+                    layer.close(index);
+                }
+        );
+    }
+
+    function jump()
+    {
+        var max_page = "";
+        var jump_page = $('#jump_page').val();
+        if(jump_page>0 && jump_page<=max_page){
+            location.href = "/Home/User/order_list"+"/p/"+$('#jump_page').val();
+        }else{
+            layer.alert('请输入正确的页数', {icon: 2});
+        }
+    }
+    //确定收货
+    function order_confirm(order_id){
+        layer.confirm("你确定收到货了吗?",{
+            btn:['确定','取消']
+        },function(){
+            location.href='/index.php?m=Home&c=User&a=order_confirm&id='+order_id;
+        })
+    }
+
+    function refund_order(obj){
+        layer.open({
+            type: 2,
+            title: '<b>订单取消申请</b>',
+            skin: 'layui-layer-rim',
+            shadeClose: true,
+            shade: 0.5,
+            area: ['600px', '500px'],
+            content: $(obj).attr('data-url'),
+        });
+    }
+</script>
+</body>
+</html>

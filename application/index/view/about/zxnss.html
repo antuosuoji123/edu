@@ -1,0 +1,105 @@
+<!--公共文件样式-->
+{include file="public/head" /}
+<!--/公共文件样式-->
+<body>
+<!--城市与购物车-->
+{include file="public/citycar" /}
+<!--/城市与购物车-->
+
+<!--搜索-->
+{include file="public/serch" /}
+<!--/搜索-->
+<!--网站导航 start-->
+{include file="public/nav" /}
+<!--网站导航 end-->
+
+
+<!--web main body start-->
+<div class="w-all w-minw bg-c-fcfcfc ovhidden">
+    <div class="w-main m-auto ovhidden">
+        <!--面包屑 start-->
+        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl"> 网站位置：首页  >  联系我们 </div>
+        <!--面包屑 end-->
+
+        <!--sub nav start -->
+        <div class="w-all bg-c-ffffff ovhidden p-t-14 p-b-18">
+            <ul class="ql_subnav">
+                <li class="fl"><a href="/index/about/aboutqf" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl">关于齐峰</a></li>
+                <li class="fl"><a href="/index/about/qfys" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl">齐峰优势</a></li>
+                <li class="fl"><a href="/index/about/honor" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl">荣誉资质</a></li>
+                <li class="fl"><a href="/index/about/zxns" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 navcur fl">招贤纳士</a></li>
+                <li class="fl"><a href="/index/about/show" class="dsblock p-l-10 p-r-10 fs-14 ftc-7a7a7a line-h28 m-l-12 m-r-12 fl ">联系我们</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <!--sub nav end -->
+        <div class="w-all hg-10"></div>
+        <!--main body start-->
+        <div class="w-all">
+            <div class="w-1140 p-l-30 p-r-30 p-t-20 bg-c-ffffff ovhidden">
+                <!--left start-->
+                <div class="w-410 bd-rs1-ececec ovhidden fl">
+                    <!--left nav start-->
+                    <style>
+                        .seccur { background:#e9511b; color:#FFF}
+                        .seccur:hover{ color:#000}
+                    </style>
+                    <div class="w-360 p-r-70 fl">
+                        <ul class="w-all m-t-20 m-b-100 ovhidden fl">
+                            <li class="w-all fl" click><a href="javascript:;" data-href="/home/index/column_detail/id/118.html" class="dsblock w-all fs-18 ftc-000000 text-c line-h58 bg-c-f5f5f5 ft-w-b m-b-2 one_hidden fl seccur" id="dd" secnav>招聘运营督导</a></li>
+                            <li class="w-all fl"click><a href="javascript:;" data-href="/home/index/column_detail/id/119.html" class="dsblock w-all fs-18 ftc-000000 text-c line-h58 bg-c-f5f5f5 ft-w-b m-b-2 one_hidden fl "  id="zy" secnav>招聘加盟专员</a></li>
+                            <div class="claer"></div>
+                        </ul>
+                    </div>
+                    <div class="w-all fl">
+                        <!--<img src="/template/pc/rainbow/static/pics/zp_tu.jpg" alt=""/>-->
+                    </div>
+                    <!--left nav end-->
+                </div>
+                <script>
+                    $(function () {
+                        $('#zy').click(function () {
+                            $('#show1').css('display','none');
+                            $('#zy').addClass('seccur');
+                            $('#dd').removeClass('seccur');
+
+                            $('#show2').css('display','block');
+                        });
+                        $('#dd').click(function () {
+                            $('#show2').css('display','none');
+                            $('#show1').css('display','block');
+                            $('#dd').addClass('seccur');
+                            $('#zy').removeClass('seccur');
+
+
+                        });
+                    });
+
+                </script>
+                <!--left end-->
+
+                <!--right start-->
+                <div class="w-650 fr">
+                    <div class="w-all" content id="show1" >
+                        <p>岗位职责：</p><p>1、支持全国加盟商的开业及正常运作；</p><p>2、辅助加盟商完成校区选址工作，并协助加盟校区的前期策划、运营工作；</p><p>3、负责所管辖区域的市场推广和招生工作，完成既定的招生任务；</p><p>4、按照公司计划定期巡校维护；</p><p>5、完成领导交办的其他工作。</p><p><br/></p><p>任职要求：</p><p>1、一年以上运营工作经历；或两年以上咨询销售经验者优先；</p><p>2、学习能力强，语言沟通能力强，有责任心；</p><p>3、能适应短暂出差。</p><p><br/></p><p>联系电话：0531-81768062</p>                        </div>
+                    <div class="w-all" content style="display:none" id="show2">
+                        <p>岗位职责：</p><p>1、向客户介绍公司与项目优势；</p><p>2、每日做好客户沟通与回访的日报；</p><p>3、邀约客户来访考察；</p><p>4、负责客户考察接待，促成签约。</p><p><br/></p><p>任职要求：</p><p>1、为人谦和有责任感，抗压能力强，善于沟通，有团队配合能力及执行力。</p><p>2、擅长人际交流沟通、为人处世，理顺各方关系。</p><p>3、专科以上学历，视野开阔，敢于创新.</p><p>4、有加盟连锁招商经验者优先</p><p><br/></p><p>联系电话：0531-81768062</p>                        </div>
+                </div>
+                <!--right end -->
+            </div>
+
+
+
+
+        </div>
+        <div class="w-all hg-40"></div>
+        <!--main body end-->
+    </div>
+    <!--web main body start-->
+</div>
+
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+</body>
+</html>

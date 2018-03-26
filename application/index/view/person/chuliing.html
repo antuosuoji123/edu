@@ -1,0 +1,180 @@
+{include file="public/personheader"}
+
+
+
+<div class="home-index-middle">
+    <div class="w1224">
+        <div class="g-crumbs">
+            <a href="/index/person">个人中心</a>
+            <i class="litt-xyb"></i>
+            <span>我的订单</span>
+        </div>
+        <div class="home-main">
+            {include file="public/personleft"}
+
+            <div class="ri-menu fr">
+                <div class="menumain p">
+                    <div class="navitems p" id="nav">
+                        <ul>
+                            <li>
+                                <a href="/index/person/mydingd" class="">全部订单</a>
+                            </li>
+                            <li>
+                                <a href="/index/person/daifk" class="">待付款</a>
+                            </li>
+                            <li>
+                                <a href="/index/person/chuliing" class="selected">处理中</a>
+                            </li>
+                            <!-- <li>
+                                <a href="/home/User/order_list/type/WAITSEND.html" class="">待发货</a>
+                            </li>
+                            <li>
+                                <a href="/home/User/order_list/type/WAITRECEIVE.html" class="">待收货</a>
+                            </li> -->
+                            <li>
+                                <a href="/index/person/daicomment" class="">待评论</a>
+                            </li>
+                            <!--<li>-->
+                            <!--<a href="javascript:void(0);" class="">预售订单</a>-->
+                            <!--</li>-->
+                        </ul>
+                        <div class="wrap-line" style="width: 130px; left: 10px;" >
+                            <span style="left:15px;"></span>
+                        </div>
+                    </div>
+                    <div class="menu_search p">
+                        <form id="search_order" action="/home/User/order_list.html" method="get">
+                            <input class="sea_ol" type="text" name="search_key" id="search_key" value=""  placeholder="课程名称，订单编号" />
+                            <input class="sea_et" type="submit" value="查询" style="cursor: pointer;"/>
+                            <!--    <span class="coice">
+                                    更多筛选条件
+                                    <i class="jt-x"></i>
+                                </span>
+                                <div class="time-qjc">
+                                    下单时间：<input id="start_time" name="start_time" value="" style="width:150px;padding:7px 10px;border:1px solid #ccc;outline: none;"/>
+                                    <span>至</span>
+                                    <input id="end_time" name="end_time" style="width:150px;padding:7px 10px;border:1px solid #ccc;outline: none;" />
+                                    <div class="nearl-zj">
+                                        <ul>
+                                            <li><a onclick="time_for_one_month();">最近一个月</a></li>
+                                            <li><a onclick="time_for_three_month();">最近三个月</a></li>
+                                            <li><a onclick="time_for_one_year();">最近一年</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mu-btn">
+                                        <a onclick="check_search_order();" href="jsvascript:">查询</a>
+                                    </div>
+                                </div>-->
+                        </form>
+                    </div>
+                    <div class="orderbook-list">
+                        <div class="book-tit">
+                            <ul>
+                                <li class="sx1">课程信息</i></li>
+                                <li class="sx2">单价</li>
+                                <li class="sx3">数量</li>
+                                <li class="sx4">支付总金额</li>
+                                <!-- <li class="sx5 s5clic">订单状态<i class="jt-x"></i></li> -->
+                                <li class="sx6">操作</li>
+                            </ul>
+                        </div>
+                        <div class="hid-derei">
+                            <ul>
+                                <li><a href="/home/User/order_list.html">全部订单</a></li>
+                                <li><a href="/home/User/order_list/type/WAITPAY.html">待付款</a></li>
+                                <li><a href="/home/User/order_list/type/WAITSEND.html">处理中</a>
+                                    <!-- <li><a href="/home/User/order_list/type/WAITSEND.html">待发货</a></li>
+                                    <li><a href="/home/User/order_list/type/WAITRECEIVE.html">待收货</a></li> -->
+                                <li><a href="/home/User/comment/status/0.html">待评论</a></li>
+                                <li><a href="/home/User/order_list/type/FINISH.html">已完成</a></li>
+                                <li><a href="/home/User/order_list/type/CANCEL.html">已取消</a></li>
+                                <!--<li><a href="">预售订单</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="order-alone-li lastset_cm">
+                        <div class="car-none-pl">
+                            <i class="account-acco1"></i>您还没有订单，<a href="/">快去逛逛吧~</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="operating fixed" id="bottom">
+                    <div class="fn_page clearfix">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--web footer start-->
+{include file="public/footer" /}
+<!--web footer copyright start-->
+<script type="text/javascript">
+    $(function(){
+        $('.s5clic').click(function(){
+            $('.hid-derei').slideToggle(400);
+            $(this).animate({opacity:"1"},200,function(){
+                $(this).toggleClass('sxbb')
+            })
+        })
+    })
+
+    $(function() {
+        var speed = 380;
+        $('#nav ul li').click(function() {
+            $(this).find('a').addClass('selected').parent().siblings().find('a').removeClass('selected')
+            var pl = $(this).position().left;
+            var liw = $(this).width();
+            $('.wrap-line').stop().animate({
+                left: pl,
+                width: liw
+            }, speed);
+        })
+    });
+    //取消订单
+    function cancel_order(id){
+        layer.confirm('确定取消订单?', {
+                    btn: ['确定','取消'] //按钮
+                }, function(){
+                    // 确定
+                    location.href = "/index.php?m=Home&c=User&a=cancel_order&id="+id;
+                }, function(index){
+                    layer.close(index);
+                }
+        );
+    }
+
+    function jump()
+    {
+        var max_page = "";
+        var jump_page = $('#jump_page').val();
+        if(jump_page>0 && jump_page<=max_page){
+            location.href = "/Home/User/order_list"+"/p/"+$('#jump_page').val();
+        }else{
+            layer.alert('请输入正确的页数', {icon: 2});
+        }
+    }
+    //确定收货
+    function order_confirm(order_id){
+        layer.confirm("你确定收到货了吗?",{
+            btn:['确定','取消']
+        },function(){
+            location.href='/index.php?m=Home&c=User&a=order_confirm&id='+order_id;
+        })
+    }
+
+    function refund_order(obj){
+        layer.open({
+            type: 2,
+            title: '<b>订单取消申请</b>',
+            skin: 'layui-layer-rim',
+            shadeClose: true,
+            shade: 0.5,
+            area: ['600px', '500px'],
+            content: $(obj).attr('data-url'),
+        });
+    }
+</script>
+
+</body>
+</html>

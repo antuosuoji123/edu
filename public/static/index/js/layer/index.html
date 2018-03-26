@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jQuery-1.11.3.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
+</head>
+<body>
+	<input type="text" id="id">
+</body>
+</html>
+<script type="text/javascript">
+	 $(function () {
+            $('#id').blur(function () {
+                
+                    layer.tips('duiduiduidududddddddd', '#id', {
+                        tips: [4, '#3595CC'],
+                        time: 4000
+                    });
+                
+            });
+        })
+</script>
