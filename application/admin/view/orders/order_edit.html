@@ -1,0 +1,232 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="/favicon.ico" >
+<link rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/admin/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/icheck/icheck.css" />
+<script type="text/javascript" src="/static/admin/icheck/jquery.icheck.min.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<title>订单编辑 </title>
+<meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+	
+<article class="page-container">
+	{foreach $res as $v}
+	<form action="/admin/orders/up_order/id/{$v.did}" method="post" class="form form-horizontal" id="form-member-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.username}" placeholder="" id="username" name="username">
+			</div>
+		</div>
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系方式：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.phone}" placeholder="" id="phone" name="phone">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户头像：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<img src="{$v.picture}" alt="" class="thumbnail" width="60"> 
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>订单编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.dnum}"  name="dnum" id="dnum">
+			</div>
+		</div>
+		<div class="row cl mt-20 skin-minimal">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否付款：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="radio-box">
+				    <input type="radio" id="pay-2" name="ispay" value="0" {if $v.ispay==0} checked {/if}>
+				    <label for="pay-2">已付款</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="pay-3" name="ispay" value="1" {if $v.ispay==1} checked {/if}>
+				    <label for="pay-3">未付款</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="pay-4" name="ispay" value="2" {if $v.ispay==2} checked {/if}>
+				    <label for="pay-4">到付</label>
+				</div><span class="c-red">(尽量不选择)</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>已付金额：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.paid}" placeholder="" name="paid" id="paid" readonly>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>收货地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.address}" placeholder="" name="address" id="address">
+			</div>
+		</div>
+		<div class="row cl mt-20 skin-minimal">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>退换货处理：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="radio-box">
+				    <input type="radio" id="radio-2" name="isback" value="0" {if $v.isback==0} checked {/if}>
+				    <label for="radio-2">正常</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-3" name="isback" value="1" {if $v.isback==1} checked {/if}>
+				    <label for="radio-3">申请退货</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-4" name="isback" value="2" {if $v.isback==2} checked {/if}>
+				    <label for="radio-4">未处理</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-5" name="isback" value="3" {if $v.isback==3} checked {/if}>
+				    <label for="radio-5">处理中</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-6" name="isback" value="4" {if $v.isback==4} checked {/if}>
+				    <label for="radio-6">已处理</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-7" name="isback" value="5" {if $v.isback==5} checked {/if}>
+				    <label for="radio-7">用户作废</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radio-8" name="isback" value="6" {if $v.isback==6} checked {/if}>
+				    <label for="radio-8">系统作废</label>
+				</div><span class="c-red">(尽量不选择)</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>提交时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$v.create_time}" readonly name="creatime" id="creatime">
+			</div>
+		</div>
+		<div class="row cl mt-20 skin-minimal">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态订单：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="radio-box">
+				    <input type="radio" id="radi-0" name="ostatus" value="0" {if $v.ostatus==0} checked {/if}>
+				    <label for="radi-0">未发货</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radi-1" name="ostatus" value="1" {if $v.ostatus==1} checked {/if}>
+				    <label for="radi-1">已发货</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radi-2" name="ostatus" value="2" {if $v.ostatus==2} checked {/if}>
+				    <label for="radi-2">已取消</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radi-3" name="ostatus" value="3" {if $v.ostatus==3} checked {/if}>
+				    <label for="radi-3">送达未签</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radi-4" name="ostatus" value="4" {if $v.ostatus==4} checked {/if}>
+				    <label for="radi-4">已签收</label>
+				</div>
+				<div class="radio-box">
+				    <input type="radio" id="radi-5" name="ostatus" value="5" {if $v.ostatus==5} checked {/if}>
+				    <label for="radi-5">已评价</label>
+				</div><span class="c-red">(尽量不选择)</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input type="hidden" name="id" value="{$v.did}">
+			</div>
+		</div>
+	</form>
+	{/foreach}
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+{include file='public/footer'}
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="/static/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-member-add").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			sex:{
+				required:true,
+			},
+			mobile:{
+				required:true,
+				isMobile:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			uploadfile:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit(function(data){
+				if (data ==1) {
+					var index = parent.layer.getFrameIndex(window.name);
+					parent.$('.btn-refresh').click();
+					parent.layer.close(index);
+					window.location.reload();
+				} else {
+					alert('未作任何修改,要退出吗?');
+					var index = parent.layer.getFrameIndex(window.name);
+					parent.layer.close(index);
+
+				}
+			});
+		}
+	});
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 namespace app\index\Controller;
 use think\Controller;
-class Details extends Controller{
+class Details extends Common{
 
     public function show()
     {

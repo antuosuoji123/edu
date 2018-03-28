@@ -5,7 +5,7 @@ use think\Session;
 use think\Db;
 use app\index\model\Address;
 use app\index\model\User;
-class Person extends Controller{
+class Person extends Common{
 
     public function index(){
 
@@ -42,28 +42,10 @@ class Person extends Controller{
     }
 
 
-
-
-
     public function sui()
     {
         return $this->fetch();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //我的订单
@@ -109,10 +91,26 @@ class Person extends Controller{
 
 
     //我的足迹
-    public function visitlog()
-    {
+    public function visitlog(){
+
+        $data = Db::name('Cart')->where('del=0')->select();
+        $this->assign('data',$data);
         return $this->fetch();
     }
+
+    //删除我的足迹
+    public function Dovisitlog(){
+
+        $id = input('get.id');
+        $res = Db::name('Cart')->where('id',$id)->delete();
+        if($res){
+            echo 1;
+        }
+
+    }
+
+
+
 
     //个人信息
     public function info()
@@ -223,6 +221,10 @@ class Person extends Controller{
     public function safetyset()
     {
         session::set('iid','1111');
+        $uid = session('uid');
+        $info = Db::name('User')->where('uid',$uid)->select();
+
+        $this->assign('info',$info);
         return $this->fetch();
 
     }

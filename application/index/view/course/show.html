@@ -17,7 +17,7 @@
 <div class="w-all w-minw bg-c-fcfcfc ovhidden">
     <div class="w-main m-auto"> 
         <!--面包屑 start-->
-        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl"> 网站位置：首页  >  11课程 </div>
+        <div class="w-main fs-14 ftc-7a7a7a line-h45 m-t-18 m-b-18 fl"> 网站位置：首页  >  课程 </div>
         <!--filter start-->
         <div class="w-1150 p-l-25 p-r-25 bg-c-ffffff fl">
             <div class="w-1150 fl">
@@ -48,12 +48,27 @@
                     <div class="w-80 fs-14 line-h28 m-t-6 m-b-6 ftc-888888 fl">所在年级</div>
                     <ul class="w-970 fl" id='two_fenn'>
                         <li class="w-70 m-l-24 fl"><a href="#" class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl class_cur">不限</a></li>
-           
                         <li class="w-70 m-l-24 fl two_fen">
-                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl"></a>
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl" onclick="bddCart()">一年级</a>
                         </li>
-       
-                   
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">二年级</a>
+                        </li> 
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">三年级</a>
+                        </li>
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">四年级</a>
+                        </li>
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">五年级</a>
+                        </li>
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">六年级</a>
+                        </li>
+                        <li class="w-70 m-l-24 fl two_fen">
+                        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl">特色课程</a>
+                        </li>     
                     </ul>
                 </div>
 
@@ -65,12 +80,10 @@
 
 
                  <ul class="w-970 fl" id="san_fenn">
-                        <li class="w-70 m-l-24 fl"><a href="#" class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl class_cur">不限</a></li>
                    
-        <li class="w-70 m-l-24 fl san_fen">
-        <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl"></a>
+                     <li class="w-70 m-l-24 fl san_fen">
+                    <a class="dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl  class_cur" >不限</a>
                         </li>
-
 
                         <div class="clear"></div>
                 </ul>
@@ -116,7 +129,7 @@
     <div class="home_calsstxt w-155 fl">
     <h3 class="w-all fs-16 ftc-000000 line-h32  one_hidden  m-t-6 fl">{$v.title}</h3>
     <span class="dsblock w-all fs-20 ftc-ff0000 line-h32 fl">￥：{$v.price}</span> </div>
-    <a href="课程详情.html" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">马上购买</a> </div>
+    <a href="coursexq?cid={$v.cid}" class="dsblock ql_icon hg-34 line-h34 fs-14 ftc-ffffff m-t-22 ql_h_btnfr w-86 text-c fr">马上购买1</a> </div>
      </li>
      {/foreach}
 
@@ -194,18 +207,16 @@
                 url :'ajax_show',
                 data: {"cid":id},
              success: function(data){
-
                $('.san_fen').html('');
                var data =JSON.parse(data);
                console.log(data);
                 //console.log($('#qingchu').attr('value'));
                 //$('#qingchu').html('');
               for(var i=0;i<data.cinfo.length;i++) {
-
-                $('#san_fenn').append("<li  class='w-70 m-l-24 fl san_fen'><a class='dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl' onclick=cddCart('"+data.cinfo[i].id+','+data.cinfo[i].name+"') >"+data.cinfo[i].name+"</li></a>");
+                $('#san_fenn').append("<li  class='w-70 m-l-24 fl san_fen'><a class='dsblock w-all fs-14 line-h28 ftc-888888 m-t-6 m-b-6 curpter text-c fl'            style=' left: -337px;bottom: -116px;' onclick=cddCart('"+data.cinfo[i].id+','+data.cinfo[i].name+"') >"+data.cinfo[i].name+"</li></a>");
 
                }
-           
+
             
                $('#qingchu').html('');//asdasdsa
                for(var j=0;j<data.dinfo.length;j++){

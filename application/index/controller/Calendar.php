@@ -3,7 +3,7 @@
 namespace app\index\Controller;
 use think\Controller;
 
-class Calendar extends Controller{
+class Calendar extends Common{
 
     public function show(){
 

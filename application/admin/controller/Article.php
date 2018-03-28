@@ -130,7 +130,7 @@ class Article extends Common {
             // 上传失败获取错误信息
             echo $file->getError();
         }
-        $uid = session('uid');
+        $uid = session('admin_id');
         $data = new Details;
         $data->add($uid,$pic);
         echo '<script>alert("更新成功");window.parent.location.reload();
@@ -170,7 +170,7 @@ class Article extends Common {
             $pic = $info->getSaveName();
 //            $data->tx($uid,$pic);
 //            $this->redirect('/index/person/info');
-            $uid = session('uid');
+            $uid = session('admin_id');
             $data = model('Details')->add($uid,$pic);
             echo '<script>alert("修改成功");window.parent.location.reload();
         var index = parent.layer.getFrameIndex(window.name);

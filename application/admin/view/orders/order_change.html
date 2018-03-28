@@ -1,0 +1,161 @@
+<!--_meta 作为公共模版分离出去-->
+{include file="public/meta" /}
+<!--/meta 作为公共模版分离出去-->
+
+<title>会员列表 - 会员管理 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<!--_header 作为公共模版分离出去-->
+{include file="public/header" /}
+<!--/_header 作为公共模版分离出去-->
+<!--_menu 作为公共模版分离出去-->
+{include file="public/menu" /}
+<!--/_menu 作为公共模版分离出去-->
+
+<section class="Hui-article-box">
+  <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 删除列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe667;</i></a></nav>
+  <div class="Hui-article">
+    <article class="cl pd-20">
+      <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 订单列表</a> </span> <span class="r">共有数据：<strong>{$num}</strong> 条</span> </div>
+      <div class="mt-20">
+        <table class="table table-border table-bordered table-hover table-bg table-sort">
+          <thead>
+            <tr class="text-c">
+              <th width="">ID</th>
+              <th width="">用户名</th>
+              <th width="">联系方式</th>
+              <th width="">用户头像</th>
+              <th width="">订单编号</th>
+              <th width="">是否付款</th>
+              <th width="">已付金额</th>
+              <th width="">收货地址</th>
+              <th width="">退换货处理</th>
+              <th width="">提交时间</th>
+              <th width="">订单状态</th>
+              <th width="">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {foreach $res as $v}
+            <tr class="text-c">
+              <td>{$v.did}</td>
+              <td>{$v.username}</td>
+              <td>{$v.phone}</td>
+              <td><img src="{$v.picture}"  width="40" /></td>
+              <td>{$v.dnum}</td>
+              <td><span class="label label-success radius">
+                  {switch name="$v.ispay" }
+                  {case value="0"}已付款{/case}
+                  {case value="1"}未付款{/case}
+                  {case value="2"}到付{/case}
+                  {default /}
+                  {/switch} 
+              </span></td>
+              <td>{$v.paid}</td>
+              <td class="text-l">{$v.address}</td>
+              <td class="td-man"><a title="退货状态" href="javascript:;" class="ml-5" style="text-decoration:none" {if  $v.isback == 1 || $v.isback == 2} onclick="order_del(this,{$v.id})" {/if}><span class="label label-success radius">
+              {switch name="$v.isback" }
+              {case value="0"}正常{/case}
+              {case value="1"}申请退货{/case}
+              {case value="2"}未处理{/case}
+              {case value="3"}处理中{/case}
+              {case value="4"}已处理{/case}
+              {case value="5"}用户作废{/case}
+              {case value="6"}系统作废{/case}
+              {default /}
+              {/switch}
+            </span></a></td>
+              <td>{$v.create_time}</td>
+              <td class="td-status"><span class="label label-success radius">
+              {switch name="$v.ostatus" }
+              {case value="0"}未发货{/case}
+              {case value="1"}已发货{/case}
+              {case value="2"}已取消{/case}
+              {case value="3"}送达未签{/case}
+              {case value="4"}已签收{/case}
+              {case value="5"}已评价{/case}
+              {default /}
+              {/switch}
+            </span></td>
+          
+              <td class="td-manage"> <a title="还原" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe66b;</i></a></td>
+            </tr>
+            {/foreach}
+          </tbody>
+        </table>
+      </div>
+    </article>                                                          
+  </div>
+</section>
+
+<!--_footer 作为公共模版分离出去-->
+{include file="public/footer" /}
+<!--/_footer /作为公共模版分离出去-->
+<script type="text/javascript">
+$(function(){
+  $('.table-sort').dataTable({
+    "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+    "bStateSave": true,//状态保存
+    "aoColumnDefs": [
+      //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+      {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
+    ]
+  });
+  $('.table-sort tbody').on( 'click', 'tr', function () {
+    if ( $(this).hasClass('selected') ) {
+      $(this).removeClass('selected');
+    }
+    else {
+      table.$('tr.selected').removeClass('selected');
+      $(this).addClass('selected');
+    }
+  });
+});
+/*用户-添加*/
+function member_add(title,url,w,h){
+  layer_show(title,url,w,h);
+}
+/*用户-查看*/
+function member_show(title,url,id,w,h){
+  layer_show(title,url,w,h);
+}
+/*用户-停用*/
+/*function member_stop(obj,id){
+  layer.confirm('确认要停用吗？',function(index){
+    $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+    $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+    $(obj).remove();
+    layer.msg('已停用!',{icon: 5,time:1000});
+  });
+}*/
+
+/*用户-启用*/
+/*function member_start(obj,id){
+  layer.confirm('确认要启用吗？',function(index){
+    $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+    $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+    $(obj).remove();
+    layer.msg('已启用!',{icon: 6,time:1000});
+  });
+}*/
+/*用户-编辑*/
+function member_edit(title,url,id,w,h){
+  layer_show(title,url,w,h);
+}
+/*密码-修改*/
+/*function change_password(title,url,id,w,h){
+  layer_show(title,url,w,h);  
+}*/
+/*用户-删除*/
+function member_del(obj,id){
+  layer.confirm('确认要删除吗？',function(index){
+    $(obj).parents("tr").remove();
+    layer.msg('已删除!',{icon:1,time:1000});
+  });
+}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

@@ -3,7 +3,7 @@ namespace app\index\Controller;
 use think\Controller;
 use think\Db;
 use app\index\model\Teacher as tea;
-class Teacher extends Controller{
+class Teacher extends Common{
 
     public function show()
     {

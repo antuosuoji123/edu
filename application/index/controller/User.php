@@ -5,7 +5,7 @@ use think\Paginator;
 use think\Session;
 use think\Db;
 use app\index\model\User as UserModel;
-class User extends Controller
+class User extends Common
 {
 
     public function login()

@@ -117,8 +117,8 @@ class Login extends Controller{
                     }elseif($password != $res['admin_password']){
                         echo json_encode('密码输入错误'); 
                     }else{
-                        Session::set('uname',$res['admin_name']);
-                        Session::set('uid',$res['admin_id']);
+                        Session::set('admin_name',$res['admin_name']);
+                        Session::set('admin_id',$res['admin_id']);
                         echo 1;
                     }
                 }

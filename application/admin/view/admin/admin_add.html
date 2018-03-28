@@ -8,43 +8,86 @@
 </head>
 <body>
 <article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" >
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="adminName" name="admin_name">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="admin_password">
-			</div>
-		</div>
 
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">角色：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-				<select class="select" name="" size="1">
-					<option value="0">超级管理员</option>
-	
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">备注：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
-			</div>
-		</div>
-		<div class="row cl">
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			</div>
-		</div>
+	<!-- 管理员： -->
+	<form action="add_admin_list" method="post" class="form form-horizontal" >
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+	<div class="formControls col-xs-8 col-sm-9">
+	<input type="text" class="input-text" value="" placeholder="" id="adminName" name="admin_name">
+	</div>
+	</div>
+
+	<!-- 密码： -->
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+	<div class="formControls col-xs-8 col-sm-9">
+	<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="admin_password">
+	</div>
+	</div>
+
+	<!-- 电话 -->
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号:</label>
+	<div class="formControls col-xs-8 col-sm-9">
+	<input type="text" class="input-text" value="" placeholder="" id="" name="phone">
+	</div>
+	</div>
+
+	<!-- 邮箱 -->
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱:</label>
+	<div class="formControls col-xs-8 col-sm-9">
+	<input type="text" class="input-text" value="" placeholder="" id="" name="email">
+	</div>
+	</div>
+
+	<!-- 角色 -->
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3">角色：</label>
+	<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+
+	<select class="select" name="title" size="1">
+	<option value="编辑" >编辑</option>
+	<option value="网站优化">网站优化</option>
+	<option value="视频管理员">视频管理员</option>
+	<option value="文章管理">文章管理</option>
+	<option value="网站管理员">网站管理员</option>
+	</select>
+	</span> 
+	</div>
+	</div>
+
+
+
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限:</label>
+	{foreach $info as $val}
+	<input type="checkbox" value="{$val.id}" name="id[]" checked />{$val.title}
+	{/foreach}
+	<br/>
+
+    <input type="checkbox"  id="all"/>全选
+     <input type="checkbox" id="resove"/>全选
+	</div>
+
+	<!-- 备注 -->
+	<div class="row cl">
+	<label class="form-label col-xs-4 col-sm-3">备注：</label>
+	<div class="formControls col-xs-8 col-sm-9">
+	<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
+	<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+	</div>
+	</div>
+	<div class="row cl">
+	<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+	<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+	</div>
+	</div>
 	</form>
-</article>
+	</article>
+
+
 
 <!--_footer 作为公共模版分离出去-->
 {include file="public/footer" /}

@@ -20,6 +20,8 @@
 <!--搜索-->
 {include file="public/serch" /}
 <!--/搜索-->
+
+
 <!--网站导航 start-->
 <div class="w-all w-minw hg-60 bd-bs-e9511b bg-c-ffffff ql_webnav"> 
     <!--网站导航 start-->
@@ -33,11 +35,10 @@
                     <!--导航-->
 {foreach $info as $val}
 <li class="a1">
-<div class="tx"><a href="{$val.name}">{$val.name}</a> </div>
+<div class="tx"><a href="{$val.name}" font-size="2px">{$val.name}</a> </div>
 <dl>
 {foreach $val['child'] as $vall}
-
-<dd> <a href="/index/course/show/{$vall.id}">{$vall.name}/</a></dd>
+<dd> <a href="/index/course/show" style="size:1px">{$vall.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></dd>
  {/foreach}
 </dl>
 
@@ -45,11 +46,11 @@
 <div class="pop">
 {foreach $val['child'] as $vall}
 <dl>
-<dt><a href="/index/course/show/{$vall.id}">{$vall.name} ></a></dt>
+<dt><a href="/index/course/show">{$vall.name} ></a></dt>
 
 <dd> 
 {foreach $vall['child2'] as $valll}
-<a class="ui-link" href="/index/course/show/id/{$valll.id}">{$valll.name}</a><span>/</span> 
+<a class="ui-link" href="/index/course/show">&nbsp;&nbsp;{$valll.name}</a>
 {/foreach}
 </dd>
 </dl>
@@ -65,7 +66,7 @@
         <!--全部商品分类-->
          <ul class="w-950 hg-60 ql_nav">
         <li><a href="/index/index/index" class="cur">首页</a></li>
-        <li><a href="/index/course/show">小学</a></li>
+        <li><a href="/index/course/show">课程</a></li>
         <li><a href="/index/room/show">双师课堂</a></li>
         <li><a href="/index/calendar/show">考试日历</a></li>
         <li><a href="/index/teacher/show">名师</a></li>

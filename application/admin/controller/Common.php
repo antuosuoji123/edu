@@ -11,7 +11,9 @@ class Common extends Controller
     public function _initialize()
     {
         // 获取用户名
-        $uid = session::get('uid');
+        $uid = session::get('admin_id');
+
+        
 
         // 判断用户名是否存在
         if (empty($uid)) {
@@ -30,9 +32,9 @@ class Common extends Controller
         // 声明Auth认证类    
         $auth = new Auth();
 
-       if(!$auth->check($model . '/' . $controller . '/' . $action, session::get('uid'))){
+       if(!$auth->check($model . '/' . $controller . '/' . $action, $uid)){
 
-//            $this->error('您没有权限访问！', url('admin/index/index'));
+           // $this->error('您没有权限访问！', url('admin/index/index'));
         }
 
     }

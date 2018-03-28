@@ -4,6 +4,8 @@ namespace app\admin\controller;
 use think\Controller;
 use app\admin\Model\Goods_type;
 use think\Db;
+use think\Request;
+
 class Product extends Common
 {
     protected $resultSetType='collection';
@@ -117,11 +119,99 @@ public function guodu() {
 
     $this->assign('data',$data);
   
-     $arr = input('');
 
-     $res = Db::name('Product')->insert($arr);
-        return $this->fetch();
+     // $res = Db::name('Product')->insert($arr);
+     return $this->fetch();
 
     }
+    public function add(){
+
+        //获取图片信息;
+        /*如果有图片或者视频*/
+         $pic        = request()->file('piPic');
+        if (!empty($pic)) {
+        $info       = $pic->move(ROOT_PATH . 'public' . DS . 'uploads');
+        $getPic     = $info->getSaveName();
+        $getPic     = '/uploads/'.$getPic;
+           //获取视频信息; 
+        $video      = request()->file('video');
+        $info       = $video->move(ROOT_PATH . 'public' . DS . 'uploads');
+        $getVideo   = $info->getSaveName();
+        $getVideo   = '/uploads/'.$getVideo;
+       
+        $data = [
+        'title'    => input('post.title'),
+        'law'      => input('post.law'),
+        'gid'      => input('post.gid'),
+        'price'    => input('post.price'),     
+        'aprice'   => input('post.aprice'),
+        'keci'     => input('post.keci'),
+        'banrong'  => input('post.banrong'),
+        'getVideo' => $getVideo,
+        'getPic'   => $getPic,
+   
+        ];
+         $res = Db::name('Product')->insert($data);
+     if($res) {
+      return $this->success('添加分类成功','product_add');
+     }
+    }
+   /*如果有没有图片或者视频*/
+
+        $data = [
+        'title'    => input('post.title'),
+        'law'      => input('post.law'),
+        'gid'      => input('post.gid'),
+        'price'    => input('post.price'),     
+        'aprice'   => input('post.aprice'),
+        'keci'     => input('post.keci'),
+        'banrong'  => input('post.banrong'),
+        ];
+
+        $result = Db::name('Product')->insert($data);
+
+     if($result) {
+      return $this->success('添加分类成功','product_add');
+     }
+       
+}
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    
+        // $arr = input('');
+        // // 获取表单上传文件
+        // $file = request()->file()['video'];
+        // if (empty($file)) {
+        // $this->error('请选择上传文件');
+        // }
+        // // 移动到框架应用根目录/public/uploads/ 目录下
+        // $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+        // $data['pic'] = $info->getSaveName()
+
+     */

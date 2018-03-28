@@ -4,7 +4,7 @@ use think\Controller;
 use app\index\Model\Goods_type;
 use app\index\Model\Product;
 use think\Db;
-class Course extends Controller{
+class Course extends Common{
     
     public function show() {
         
@@ -24,9 +24,10 @@ class Course extends Controller{
     //课程详情
     public function coursexq() {
 
-        $cid = $_GET['cid'];
-        $info = Db::name('product')->where('cid',$cid)->select();
-        $this->assign('info',$info);
+            $cid = $_GET['cid'];
+            $data = Db::name('product')->where('cid',$cid)->select();
+            dump($data);
+        $this->assign('data',$data);
         return $this->fetch();
     }
 
